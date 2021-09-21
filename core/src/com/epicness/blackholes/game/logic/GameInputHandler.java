@@ -1,9 +1,9 @@
 package com.epicness.blackholes.game.logic;
 
+import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.fundamentals.input.InputHandler;
 
-import static com.badlogic.gdx.Input.Keys.ENTER;
-import static com.badlogic.gdx.Input.Keys.SPACE;
+import static com.badlogic.gdx.Input.Keys.*;
 
 public class GameInputHandler extends InputHandler {
 
@@ -17,6 +17,8 @@ public class GameInputHandler extends InputHandler {
             case ENTER:
                 logic.getWeaponsHandler().player2Fire();
                 break;
+            case W:
+                logic.getShipHandler().Accelerate(((GameStuff)stuff).playerShip);
         }
     }
 }

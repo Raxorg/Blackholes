@@ -25,6 +25,7 @@ public class GameLogic extends Logic {
         shipHandler = new ShipHandler();
 
         spaceObjectHandler.setLogic(this);
+        gameInputHandler.setLogic(this);
     }
 
     @Override
@@ -56,5 +57,9 @@ public class GameLogic extends Logic {
 
     public WeaponsHandler getWeaponsHandler() {
         return weaponsHandler;
+    }
+
+    public ShipHandler getShipHandler() {
+        return shipHandler;
     }
 }
