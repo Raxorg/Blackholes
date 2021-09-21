@@ -8,4 +8,8 @@ public class GameConstants {
     // Junk
     public static final int INITIAL_JUNK = 50;
     public static final float JUNK_SPAWN_RATE = 2f;
+
+    //Ships
+    public static final float SHIP_SPEED = 10f;
+
 }

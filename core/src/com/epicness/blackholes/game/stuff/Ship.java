@@ -31,9 +31,7 @@ public class Ship extends SpaceObject {
 
         //Now position and scale them
         for(ShipComponent sc : components) {
-            sc.getBoundingBox().setPosition(150, 150);
             sc.getBoundingBox().setScale(15, 15);
-            sc.getBoundingBox().setRotation(rotation);
         }
     }
 

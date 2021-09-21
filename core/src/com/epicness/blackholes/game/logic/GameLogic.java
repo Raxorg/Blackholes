@@ -13,6 +13,7 @@ public class GameLogic extends Logic {
     private final GameInputHandler gameInputHandler;
     private final SpaceObjectHandler spaceObjectHandler;
     private final WeaponsHandler weaponsHandler;
+    private final ShipHandler shipHandler;
 
     public GameLogic(SharedLogic sharedLogic) {
         super(sharedLogic);
@@ -21,6 +22,7 @@ public class GameLogic extends Logic {
         gameInputHandler = new GameInputHandler();
         spaceObjectHandler = new SpaceObjectHandler();
         weaponsHandler = new WeaponsHandler();
+        shipHandler = new ShipHandler();
 
         spaceObjectHandler.setLogic(this);
     }
