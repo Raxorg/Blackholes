@@ -51,4 +51,8 @@ public class GameLogic extends Logic {
         spaceObjectHandler.setStuff(gameStuff);
         weaponsHandler.setStuff(gameStuff);
     }
+
+    public WeaponsHandler getWeaponsHandler() {
+        return weaponsHandler;
+    }
 }

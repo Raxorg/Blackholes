@@ -15,6 +15,10 @@ public class BlackHoleHandler {
         }
     }
 
+    private void handleAlphaBlackHole() {
+
+    }
+
     public void setStuff(GameStuff stuff) {
         this.stuff = stuff;
     }

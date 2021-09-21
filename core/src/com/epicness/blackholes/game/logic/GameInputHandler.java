@@ -12,10 +12,10 @@ public class GameInputHandler extends InputHandler {
         GameLogic logic = (GameLogic) this.logic;
         switch (keycode) {
             case SPACE:
-
+                logic.getWeaponsHandler().player1Fire();
                 break;
             case ENTER:
-
+                logic.getWeaponsHandler().player2Fire();
                 break;
         }
     }
