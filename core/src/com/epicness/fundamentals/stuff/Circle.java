@@ -3,8 +3,6 @@ package com.epicness.fundamentals.stuff;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Line;
-
 public class Circle {
 
     private float x, y, radius;
@@ -12,6 +10,7 @@ public class Circle {
 
     public Circle(float radius) {
         this.radius = radius;
+        color = Color.WHITE;
     }
 
     public void draw(ShapeRenderer shapeRenderer) {
@@ -21,7 +20,6 @@ public class Circle {
 
     public void drawContour(ShapeRenderer shapeRenderer) {
         shapeRenderer.setColor(color.cpy().set(1 - color.r, 1 - color.g, 1 - color.b, 1f));
-        shapeRenderer.set(Line);
         shapeRenderer.circle(x, y, radius);
     }
 

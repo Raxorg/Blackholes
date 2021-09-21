@@ -73,6 +73,11 @@ public class DualSprited implements Buttonable {
         foreground.setSize(width, height);
     }
 
+    public void rotate(float degrees) {
+        background.rotate(degrees);
+        foreground.rotate(degrees);
+    }
+
     public Color getForegroundColor() {
         return foreground.getColor();
     }
@@ -88,5 +93,10 @@ public class DualSprited implements Buttonable {
 
     public void setForegroundColor(Color color) {
         foreground.setColor(color);
+    }
+
+    public void setOriginCenter() {
+        background.setOriginCenter();
+        foreground.setOriginCenter();
     }
 }
