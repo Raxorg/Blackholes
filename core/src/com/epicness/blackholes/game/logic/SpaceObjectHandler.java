@@ -2,7 +2,6 @@ package com.epicness.blackholes.game.logic;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.blackholes.game.stuff.SpaceObject;
 import com.epicness.fundamentals.logic.Logic;
@@ -28,9 +27,9 @@ public class SpaceObjectHandler {
 
     private void moveObject(SpaceObject o, float delta) {
         //Update velocity using acceleration
-        o.getVelocity().add(o.getAcceleration().cpy().scl(delta));
+        o.setVelocity(o.getVelocity().add(o.getAcceleration().cpy().scl(delta)));
         //Now update position using the new velocity
-        o.getPosition().add(o.getVelocity().cpy().scl(delta));
+        o.setPosition(o.getPosition().add(o.getVelocity().cpy().scl(delta)));
         //Handle any angular velocity
         o.setRotation(o.getRotation() + (o.getAngularVelocity() * Gdx.graphics.getDeltaTime()));
         //Reset the objects acceleration
