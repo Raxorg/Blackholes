@@ -49,8 +49,10 @@ public class BlackHole extends SpaceObject {
         distortion.drawContour(shapeRenderer);
     }
 
-    public void setPosition(float x, float y) {
-        setPosition(new Vector2(x, y));
+    @Override
+    public void setPosition(Vector2 position) {
+        super.setPosition(position);
+        float x = position.x, y = position.y;
         normal.setPosition(x, y);
         inverted.setPosition(x, y);
         distortion.setPosition(x + BLACK_HOLE_SIZE / 2f, y + BLACK_HOLE_SIZE / 2f);

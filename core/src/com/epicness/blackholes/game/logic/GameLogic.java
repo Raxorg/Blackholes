@@ -37,7 +37,7 @@ public class GameLogic extends Logic {
     public void update(float delta) {
         blackHoleHandler.update(delta);
         distortionHandler.update(delta);
-        spaceObjectHandler.MoveAllObjects();
+        spaceObjectHandler.moveAllObjects(delta);
     }
 
     @Override

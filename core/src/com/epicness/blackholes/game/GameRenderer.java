@@ -39,6 +39,9 @@ public class GameRenderer extends Renderer {
         for (int i = 0; i < stuff.getBlackHoles().size; i++) {
             stuff.getBlackHoles().get(i).draw(spriteBatch);
         }
+        for (int i = 0; i < stuff.getJunks().size; i++) {
+            stuff.getJunks().get(i).drawNormal(spriteBatch);
+        }
         spriteBatch.end();
     }
 
@@ -70,6 +73,9 @@ public class GameRenderer extends Renderer {
         spriteBatch.begin();
         for (int i = 0; i < stuff.getBlackHoles().size; i++) {
             stuff.getBlackHoles().get(i).drawInverted(spriteBatch);
+        }
+        for (int i = 0; i < stuff.getJunks().size; i++) {
+            stuff.getJunks().get(i).drawInverted(spriteBatch);
         }
         spriteBatch.end();
 
