@@ -7,9 +7,10 @@ import com.epicness.blackholes.BlackHolesGame;
 public class DesktopLauncher {
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.width = 1400;
-        config.height = 700;
+        config.width = 1000;
+        config.height = 800;
         config.forceExit = false;
+        config.resizable = false;
         new LwjglApplication(new BlackHolesGame(), config);
     }
 }
