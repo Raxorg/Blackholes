@@ -14,6 +14,7 @@ public class Junk extends SpaceObject {
     public Junk(Sprite normalJunk, Sprite invertedJunk) {
         dualSprited = new DualSprited(normalJunk, invertedJunk);
         dualSprited.setSize(JUNK_SIZE);
+        dualSprited.setOriginCenter();
     }
 
     public void drawNormal(SpriteBatch spriteBatch) {
@@ -28,5 +29,11 @@ public class Junk extends SpaceObject {
     public void setPosition(Vector2 position) {
         super.setPosition(position);
         dualSprited.setPosition(position.x, position.y);
+    }
+
+    @Override
+    public void setRotation(float rotation) {
+        super.setRotation(rotation);
+        dualSprited.setRotation(rotation);
     }
 }

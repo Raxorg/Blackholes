@@ -3,7 +3,8 @@ package com.epicness.blackholes.game;
 public class GameConstants {
 
     // BlackHoles
-    public static final float BLACK_HOLE_SIZE = 200f;
+    public static final float BLACK_HOLE_SIZE = 300f;
+    public static final float DISTORTION_SPEED = 25f;
 
     // Junk
     public static final int INITIAL_JUNK = 50;

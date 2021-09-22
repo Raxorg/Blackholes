@@ -33,7 +33,7 @@ public class BlackHole extends SpaceObject {
         this.blackHoleType = blackHoleType;
     }
 
-    public void draw(SpriteBatch spriteBatch) {
+    public void drawNormal(SpriteBatch spriteBatch) {
         normal.draw(spriteBatch);
     }
 
@@ -43,10 +43,6 @@ public class BlackHole extends SpaceObject {
 
     public void drawDistortion(ShapeRenderer shapeRenderer) {
         distortion.draw(shapeRenderer);
-    }
-
-    public void drawContour(ShapeRenderer shapeRenderer) {
-        distortion.drawContour(shapeRenderer);
     }
 
     @Override
@@ -65,8 +61,8 @@ public class BlackHole extends SpaceObject {
     }
 
     public void setColor(Color color) {
-        normal.setColor(color);
-        inverted.setColor(color);
+        normal.setBackgroundColor(color);
+        inverted.setForegroundColor(color);
     }
 
     public void addDistortionRadius(float additionalRadius) {

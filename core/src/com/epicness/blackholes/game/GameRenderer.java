@@ -37,7 +37,7 @@ public class GameRenderer extends Renderer {
     private void drawUnmasked(GameStuff stuff) {
         spriteBatch.begin();
         for (int i = 0; i < stuff.getBlackHoles().size; i++) {
-            stuff.getBlackHoles().get(i).draw(spriteBatch);
+            stuff.getBlackHoles().get(i).drawNormal(spriteBatch);
         }
         for (int i = 0; i < stuff.getJunks().size; i++) {
             stuff.getJunks().get(i).drawNormal(spriteBatch);

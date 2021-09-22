@@ -73,6 +73,11 @@ public class DualSprited implements Buttonable {
         foreground.setSize(width, height);
     }
 
+    public void setRotation(float rotation) {
+        background.setRotation(rotation);
+        foreground.setRotation(rotation);
+    }
+
     public void rotate(float degrees) {
         background.rotate(degrees);
         foreground.rotate(degrees);

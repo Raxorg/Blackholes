@@ -35,6 +35,8 @@ public class GameStuff extends Stuff {
             float randomX = MathUtils.random(0, CAMERA_WIDTH);
             float randomY = MathUtils.random(0, CAMERA_HEIGHT);
             junk.setPosition(new Vector2(randomX, randomY));
+            float randomAngularVelocity = MathUtils.random(-50f, 50f);
+            junk.setAngularVelocity(randomAngularVelocity);
             junks.add(junk);
         }
 
