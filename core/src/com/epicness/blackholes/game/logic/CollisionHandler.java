@@ -1,9 +1,13 @@
 package com.epicness.blackholes.game.logic;
 
+import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.blackholes.game.stuff.Junk;
+import com.epicness.blackholes.game.stuff.Ship;
 import com.epicness.blackholes.game.stuff.blackholes.BlackHole;
+import com.epicness.fundamentals.utils.Overlapper;
 
 public class CollisionHandler {
 
@@ -11,7 +15,8 @@ public class CollisionHandler {
 
     public void update() {
         checkBlackHoleJunkCollisions();
-        checkBlackHoleShipCollisions();
+        checkBlackHoleShipCollisions(stuff.playerShip);
+        checkBlackHoleShipCollisions(stuff.enemyShip);
     }
 
     private void checkBlackHoleJunkCollisions() {
@@ -21,17 +26,25 @@ public class CollisionHandler {
         for (int i = 0; i < blackHoles.size; i++) {
             BlackHole blackHole = blackHoles.get(i);
             for (int j = 0; j < junks.size; j++) {
-                Junk junk = junks.get(i);
-                if (blackHole.getBounds().overlaps(junk.getBounds())) {
+                Junk junk = junks.get(j);
+                if (blackHole.getCollider().overlaps(junk.getCollider())) {
                     System.out.println("BOOM");
-                    // TODO: 22/9/2021 what happens here?!
                 }
             }
         }
     }
 
-    private void checkBlackHoleShipCollisions() {
-
+    private void checkBlackHoleShipCollisions(Ship ship) {
+        DelayedRemovalArray<BlackHole> blackHoles = stuff.getBlackHoles();
+        for (int i = 0; i < blackHoles.size; i++) {
+            Circle blackHoleCollider = blackHoles.get(i).getCollider();
+            for (int j = 0; j < ship.getComponents().size(); j++) {
+                Polygon shipCollider = ship.getComponents().get(j).getCollider();
+                if (Overlapper.overlapPolygonCircle(shipCollider, blackHoleCollider)) {
+                    System.out.println("BOOM SHIP");
+                }
+            }
+        }
     }
 
     public void setStuff(GameStuff stuff) {

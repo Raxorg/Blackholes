@@ -1,6 +1,5 @@
 package com.epicness.blackholes.game.logic;
 
-import com.badlogic.gdx.math.Vector2;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.blackholes.game.stuff.SpaceObject;
 import com.epicness.fundamentals.logic.Logic;
@@ -25,14 +24,14 @@ public class SpaceObjectHandler {
     }
 
     private void moveObject(SpaceObject o, float delta) {
-        //Update velocity using acceleration
+        // Update velocity using acceleration
         o.setVelocity(o.getVelocity().add(o.getAcceleration().cpy().scl(delta)));
-        //Now update position using the new velocity
+        // Now update position using the new velocity
         o.setPosition(o.getPosition().add(o.getVelocity().cpy().scl(delta)));
-        //Handle any angular velocity
+        // Handle any angular velocity
         o.setRotation(o.getRotation() + (o.getAngularVelocity() * delta));
-        //Reset the objects acceleration
-        //o.setAcceleration(new Vector2(0, 0)); --> maybe this should be done individually, the only objects that use this are the ships and this disturbs the movement code!
+        // Reset the objects acceleration
+        // o.setAcceleration(new Vector2(0, 0)); --> maybe this should be done individually, the only objects that use this are the ships and this disturbs the movement code!
         o.setRotation(o.getRotation() + (o.getAngularVelocity() * delta));
     }
 

@@ -8,7 +8,6 @@ import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.fundamentals.renderer.Renderer;
 
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
-import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Line;
 
 public class GameRenderer extends Renderer {
 
@@ -25,13 +24,8 @@ public class GameRenderer extends Renderer {
         drawUnmasked(stuff);
         drawMasks(stuff);
         drawMasked(stuff);
-        Gdx.gl.glDisable(GL20.GL_DEPTH_TEST);
 
-        //This just draws the bounding boxes of all the "SpaceObjects" --> basically anything that's going to float around in space
-        shapeRenderer.begin();
-        //Draw shapes in here!
-        stuff.playerShip.draw(shapeRenderer); // TODO: 22/9/2021 start using spritebatch to draw ship
-        shapeRenderer.end();
+        Gdx.gl.glDisable(GL20.GL_DEPTH_TEST);
     }
 
     private void drawUnmasked(GameStuff stuff) {
@@ -43,6 +37,17 @@ public class GameRenderer extends Renderer {
             stuff.getJunks().get(i).drawNormal(spriteBatch);
         }
         spriteBatch.end();
+        shapeRenderer.begin();
+        for (int i = 0; i < stuff.getJunks().size; i++) {
+            stuff.getJunks().get(i).drawCollider(shapeRenderer);
+        }
+        for (int i = 0; i < stuff.getBlackHoles().size; i++) {
+            stuff.getBlackHoles().get(i).drawDistortion(shapeRenderer);
+            stuff.getBlackHoles().get(i).drawCollider(shapeRenderer);
+        }
+        stuff.playerShip.drawCollider(shapeRenderer);
+        stuff.enemyShip.drawCollider(shapeRenderer);
+        shapeRenderer.end();
     }
 
     private void drawMasks(GameStuff stuff) {
@@ -78,11 +83,5 @@ public class GameRenderer extends Renderer {
             stuff.getJunks().get(i).drawInverted(spriteBatch);
         }
         spriteBatch.end();
-
-        shapeRenderer.begin(Line);
-        for (int i = 0; i < stuff.getBlackHoles().size; i++) {
-            stuff.getBlackHoles().get(i).drawDistortion(shapeRenderer);
-        }
-        shapeRenderer.end();
     }
 }

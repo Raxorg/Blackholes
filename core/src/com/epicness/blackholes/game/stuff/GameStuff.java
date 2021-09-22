@@ -2,17 +2,13 @@ package com.epicness.blackholes.game.stuff;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.epicness.blackholes.game.GameAssets;
 import com.epicness.blackholes.game.stuff.blackholes.BlackHole;
 import com.epicness.fundamentals.stuff.Stuff;
 
-import static com.epicness.blackholes.game.GameConstants.INITIAL_JUNK;
 import static com.epicness.blackholes.game.stuff.blackholes.BlackHoleType.ALPHA;
-import static com.epicness.fundamentals.SharedConstants.CAMERA_HEIGHT;
-import static com.epicness.fundamentals.SharedConstants.CAMERA_WIDTH;
 
 public class GameStuff extends Stuff {
 
@@ -24,10 +20,10 @@ public class GameStuff extends Stuff {
     public void initializeStuff() {
         GameAssets assets = (GameAssets) this.assets;
 
-        playerShip = new Ship();
+        playerShip = new Ship(assets);
         playerShip.setPosition(new Vector2(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f));
 
-        enemyShip = new Ship();
+        enemyShip = new Ship(assets);
         enemyShip.setPosition(new Vector2(300, 300));
 
         junks = new DelayedRemovalArray<>();
@@ -37,7 +33,7 @@ public class GameStuff extends Stuff {
                 assets.getBlackHole(), assets.getBlackHoleGlow(),
                 assets.getInvertedBlackHole(), assets.getInvertedBlackHoleGlow(),
                 ALPHA);
-        blackHole.setPosition(new Vector2(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f));
+        blackHole.setPosition(new Vector2(200f, 200f));
         blackHole.setColor(Color.CHARTREUSE);
         blackHoles.add(blackHole);
     }

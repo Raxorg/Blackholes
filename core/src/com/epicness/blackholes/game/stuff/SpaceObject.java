@@ -1,7 +1,8 @@
 package com.epicness.blackholes.game.stuff;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Polygon;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -12,7 +13,7 @@ public abstract class SpaceObject {
 
     protected float mass, rotation, angularVelocity;
     protected Vector2 position, velocity, acceleration;
-    protected Polygon boundingBox;
+    protected Shape2D collider;
 
     public SpaceObject() {
         mass = 1f;
@@ -27,9 +28,7 @@ public abstract class SpaceObject {
 
     public abstract void drawInverted(SpriteBatch spriteBatch);
 
-    public Polygon getBoundingBox() {
-        return boundingBox;
-    }
+    public abstract void drawCollider(ShapeRenderer shapeRenderer);
 
     public float getRotation() {
         return rotation;
