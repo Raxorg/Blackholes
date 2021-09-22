@@ -10,6 +10,8 @@ public class SharedConstants {
     public static final float CAMERA_HEIGHT = 1000;
     public static final float CAMERA_WIDTH = CAMERA_HEIGHT * RATIO;
     // Asset paths
+    public static final String PIXEL_FONT_PATH = "fonts/shared/pixelFont.fnt";
+
     public static final String GLOW_PATH = "images/shared/glow.png";
     public static final String PIXEL_PATH = "images/shared/pixel.png";
     public static final String SQUARE_32_PATH = "images/shared/square32.png";

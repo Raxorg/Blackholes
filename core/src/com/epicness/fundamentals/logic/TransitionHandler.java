@@ -18,7 +18,7 @@ public class TransitionHandler {
     }
 
     public void update() {
-        if (initializer.getAssets().areAssetsInitialized() && transitionAllowed) {
+        if (transitionAllowed && initializer.getAssets().areAssetsInitialized()) {
             showNewScreen();
             transitionAllowed = false;
         }
