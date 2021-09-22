@@ -30,7 +30,7 @@ public class GameRenderer extends Renderer {
         //This just draws the bounding boxes of all the "SpaceObjects" --> basically anything that's going to float around in space
         shapeRenderer.begin();
         //Draw shapes in here!
-        stuff.playerShip.draw(shapeRenderer);
+        stuff.playerShip.draw(shapeRenderer); // TODO: 22/9/2021 start using spritebatch to draw ship
         shapeRenderer.end();
     }
 

@@ -31,15 +31,6 @@ public class GameStuff extends Stuff {
         enemyShip.setPosition(new Vector2(300, 300));
 
         junks = new DelayedRemovalArray<>();
-        for (int i = 0; i < INITIAL_JUNK; i++) {
-            Junk junk = new Junk(sharedAssets.getWeirdShape(), sharedAssets.getPixel());
-            float randomX = MathUtils.random(0, CAMERA_WIDTH);
-            float randomY = MathUtils.random(0, CAMERA_HEIGHT);
-            junk.setPosition(new Vector2(randomX, randomY));
-            float randomAngularVelocity = MathUtils.random(-50f, 50f);
-            junk.setAngularVelocity(randomAngularVelocity);
-            junks.add(junk);
-        }
 
         blackHoles = new DelayedRemovalArray<>();
         BlackHole blackHole = new BlackHole(

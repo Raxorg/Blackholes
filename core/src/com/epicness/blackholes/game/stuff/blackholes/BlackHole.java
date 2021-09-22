@@ -72,4 +72,8 @@ public class BlackHole extends SpaceObject {
     public BlackHoleType getBlackHoleType() {
         return blackHoleType;
     }
+
+    public Circle getBounds() {
+        return distortion;
+    }
 }

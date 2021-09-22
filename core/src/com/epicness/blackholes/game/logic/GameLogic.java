@@ -1,6 +1,8 @@
 package com.epicness.blackholes.game.logic;
 
+import com.epicness.blackholes.game.GameAssets;
 import com.epicness.blackholes.game.stuff.GameStuff;
+import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.input.SharedInput;
 import com.epicness.fundamentals.logic.Logic;
 import com.epicness.fundamentals.logic.SharedLogic;
@@ -9,8 +11,10 @@ import com.epicness.fundamentals.stuff.Stuff;
 public class GameLogic extends Logic {
 
     private final BlackHoleHandler blackHoleHandler;
+    private final CollisionHandler collisionHandler;
     private final DistortionHandler distortionHandler;
     private final GameInputHandler gameInputHandler;
+    private final JunkSpawner junkSpawner;
     private final SpaceObjectHandler spaceObjectHandler;
     private final WeaponsHandler weaponsHandler;
     private final ShipHandler shipHandler;
@@ -18,8 +22,10 @@ public class GameLogic extends Logic {
     public GameLogic(SharedLogic sharedLogic) {
         super(sharedLogic);
         blackHoleHandler = new BlackHoleHandler();
+        collisionHandler = new CollisionHandler();
         distortionHandler = new DistortionHandler();
         gameInputHandler = new GameInputHandler();
+        junkSpawner = new JunkSpawner();
         spaceObjectHandler = new SpaceObjectHandler();
         weaponsHandler = new WeaponsHandler();
         shipHandler = new ShipHandler();
@@ -31,14 +37,22 @@ public class GameLogic extends Logic {
     @Override
     public void initialLogic() {
         gameInputHandler.setupInput();
+        junkSpawner.spawnInitialJunk();
     }
 
     @Override
     public void update(float delta) {
         blackHoleHandler.update(delta);
+        collisionHandler.update();
         distortionHandler.update(delta);
         spaceObjectHandler.moveAllObjects(delta);
         shipHandler.update();
+    }
+
+    @Override
+    public void setAssets(Assets assets) {
+        GameAssets gameAssets = (GameAssets) assets;
+        junkSpawner.setAssets(gameAssets);
     }
 
     @Override
@@ -50,8 +64,10 @@ public class GameLogic extends Logic {
     public void setStuff(Stuff stuff) {
         GameStuff gameStuff = (GameStuff) stuff;
         blackHoleHandler.setStuff(gameStuff);
+        collisionHandler.setStuff(gameStuff);
         distortionHandler.setStuff(gameStuff);
         gameInputHandler.setStuff(gameStuff);
+        junkSpawner.setStuff(gameStuff);
         spaceObjectHandler.setStuff(gameStuff);
         weaponsHandler.setStuff(gameStuff);
         shipHandler.setStuff(gameStuff);

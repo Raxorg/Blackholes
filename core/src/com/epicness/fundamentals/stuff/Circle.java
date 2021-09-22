@@ -55,4 +55,12 @@ public class Circle {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public boolean overlaps(Circle other) {
+        float dx = x - other.x;
+        float dy = y - other.y;
+        float distance = dx * dx + dy * dy;
+        float radiusSum = radius + other.radius;
+        return distance < radiusSum * radiusSum;
+    }
 }

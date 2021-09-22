@@ -1,7 +1,6 @@
 package com.epicness.blackholes.game.stuff;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 
@@ -9,7 +8,7 @@ import com.badlogic.gdx.math.Vector2;
  * This class will represent anything that can free float in space.
  * Things like: space junk, our ship, broken pieces of our ship
  */
-public class SpaceObject {
+public abstract class SpaceObject {
 
     protected float mass, rotation, angularVelocity;
     protected Vector2 position, velocity, acceleration;
@@ -24,14 +23,9 @@ public class SpaceObject {
         acceleration = new Vector2();
     }
 
-    /**
-     * This is the base-draw fuction for SpaceObjects that arent also Ships
-     * @param sr
-     */
-    public void draw(ShapeRenderer sr) {
-        this.boundingBox.setPosition(this.position.x, this.position.y);
-        this.boundingBox.setRotation(this.rotation);
-    }
+    public abstract void drawNormal(SpriteBatch spriteBatch);
+
+    public abstract void drawInverted(SpriteBatch spriteBatch);
 
     public Polygon getBoundingBox() {
         return boundingBox;
