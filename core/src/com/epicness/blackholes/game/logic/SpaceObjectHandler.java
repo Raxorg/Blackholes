@@ -32,7 +32,7 @@ public class SpaceObjectHandler {
         //Handle any angular velocity
         o.setRotation(o.getRotation() + (o.getAngularVelocity() * delta));
         //Reset the objects acceleration
-        o.setAcceleration(new Vector2(0, 0));
+        //o.setAcceleration(new Vector2(0, 0)); --> maybe this should be done individually, the only objects that use this are the ships and this disturbs the movement code!
         o.setRotation(o.getRotation() + (o.getAngularVelocity() * delta));
     }
 

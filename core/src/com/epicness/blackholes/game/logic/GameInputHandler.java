@@ -1,11 +1,11 @@
 package com.epicness.blackholes.game.logic;
 
+import com.badlogic.gdx.math.Vector2;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.fundamentals.input.InputHandler;
 
-import static com.badlogic.gdx.Input.Keys.ENTER;
-import static com.badlogic.gdx.Input.Keys.SPACE;
-import static com.badlogic.gdx.Input.Keys.W;
+import static com.badlogic.gdx.Input.Keys.*;
+import static com.epicness.blackholes.game.GameConstants.SHIP_TURN_SPEED;
 
 public class GameInputHandler extends InputHandler {
 
@@ -20,7 +20,26 @@ public class GameInputHandler extends InputHandler {
                 logic.getWeaponsHandler().player2Fire();
                 break;
             case W:
-                logic.getShipHandler().Accelerate(((GameStuff) stuff).playerShip);
+                ((GameStuff)stuff).playerShip.setAccelerating(true);
+                break;
+            case Q:
+                ((GameStuff)stuff).playerShip.setAngularVelocity(SHIP_TURN_SPEED);
+                break;
+            case E:
+                ((GameStuff)stuff).playerShip.setAngularVelocity(-SHIP_TURN_SPEED);
+        }
+    }
+
+    @Override
+    public void keyUp(int keycode) {
+        switch(keycode) {
+            case W:
+                ((GameStuff)stuff).playerShip.setAccelerating(false);
+                ((GameStuff)stuff).playerShip.setAcceleration(Vector2.Zero);
+                break;
+            case Q:
+            case E:
+                ((GameStuff)stuff).playerShip.setAngularVelocity(0);
         }
     }
 }

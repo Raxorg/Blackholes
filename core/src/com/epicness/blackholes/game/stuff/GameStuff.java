@@ -25,9 +25,10 @@ public class GameStuff extends Stuff {
         GameAssets assets = (GameAssets) this.assets;
 
         playerShip = new Ship();
-        //playerShip.setAcceleration(new Vector2(10, 10));
         playerShip.setPosition(new Vector2(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f));
-        playerShip.setAngularVelocity(15f);
+
+        enemyShip = new Ship();
+        enemyShip.setPosition(new Vector2(300, 300));
 
         junks = new DelayedRemovalArray<>();
         for (int i = 0; i < INITIAL_JUNK; i++) {

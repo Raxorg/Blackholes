@@ -17,6 +17,7 @@ public class Ship extends SpaceObject {
     private ShipComponent cockpit;
 
     private ShipComponent[] components;
+    private boolean Accelerating;
 
     public Ship() {
 
@@ -44,5 +45,13 @@ public class Ship extends SpaceObject {
                 sr.polygon(sc.getBoundingBox().getTransformedVertices());
             }
         }
+    }
+
+    public void setAccelerating(boolean accelerating) {
+        Accelerating = accelerating;
+    }
+
+    public boolean getAccelerating() {
+        return Accelerating;
     }
 }

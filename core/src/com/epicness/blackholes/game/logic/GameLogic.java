@@ -38,6 +38,7 @@ public class GameLogic extends Logic {
         blackHoleHandler.update(delta);
         distortionHandler.update(delta);
         spaceObjectHandler.moveAllObjects(delta);
+        shipHandler.update();
     }
 
     @Override
@@ -53,6 +54,7 @@ public class GameLogic extends Logic {
         gameInputHandler.setStuff(gameStuff);
         spaceObjectHandler.setStuff(gameStuff);
         weaponsHandler.setStuff(gameStuff);
+        shipHandler.setStuff(gameStuff);
     }
 
     public WeaponsHandler getWeaponsHandler() {

@@ -12,6 +12,7 @@ public class GameConstants {
     public static final float JUNK_SIZE = 25f;
 
     //Ships
-    public static final float SHIP_SPEED = 10f;
+    public static final float SHIP_ACCELERATION_SPEED = 2f;
+    public static final float SHIP_TURN_SPEED = 100f;
 
 }
