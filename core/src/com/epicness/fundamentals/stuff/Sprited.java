@@ -42,7 +42,11 @@ public class Sprited implements Buttonable {
     }
 
     public void setSize(float size) {
-        sprite.setSize(size, size);
+        setSize(size, size);
+    }
+
+    public void setSize(float width, float height) {
+        sprite.setSize(width, height);
     }
 
     public void setColor(Color color) {

@@ -13,6 +13,7 @@ public class MenuRenderer extends Renderer {
         ScreenUtils.clear(Color.BLACK);
 
         spriteBatch.begin();
+        stuff.getBackground().draw(spriteBatch);
         stuff.getPlayButton().draw(spriteBatch);
         spriteBatch.end();
     }

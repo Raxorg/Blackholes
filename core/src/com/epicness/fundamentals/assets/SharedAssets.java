@@ -34,15 +34,6 @@ public class SharedAssets extends Assets {
     }
 
     @Override
-    public boolean loadAssets() {
-        return assetManager.update();
-    }
-
-    public void finishLoading() {
-        assetManager.finishLoading();
-    }
-
-    @Override
     public void initializeAssets() {
         // Fonts
         pixelFont = assetManager.get(PIXEL_FONT_PATH, BitmapFont.class);

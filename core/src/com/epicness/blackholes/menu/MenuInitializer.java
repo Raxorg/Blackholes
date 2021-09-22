@@ -15,6 +15,10 @@ public class MenuInitializer extends Initializer {
         logic = new MenuLogic(sharedResources.getLogic());
         renderer = new MenuRenderer();
         stuff = new MenuStuff();
+        // This is the first screen, so don't load async
+        assets.queueAssetLoading();
+        assets.finishLoading();
+        assets.initializeAssets();
         super.initialize(sharedResources);
     }
 }

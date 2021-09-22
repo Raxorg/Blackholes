@@ -23,12 +23,6 @@ public class GameAssets extends Assets {
     }
 
     @Override
-    public boolean loadAssets() {
-        assetManager.finishLoading();
-        return true;
-    }
-
-    @Override
     public void initializeAssets() {
         blackHole = new Sprite(assetManager.get(BLACK_HOLE_PATH, Texture.class));
         blackHole.getTexture().setFilter(Linear, Linear);
