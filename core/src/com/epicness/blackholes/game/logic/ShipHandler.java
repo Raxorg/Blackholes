@@ -3,7 +3,6 @@ package com.epicness.blackholes.game.logic;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.blackholes.game.stuff.Ship;
-import com.epicness.fundamentals.stuff.Stuff;
 
 import static com.epicness.blackholes.game.GameConstants.SHIP_ACCELERATION_SPEED;
 
@@ -15,10 +14,10 @@ public class ShipHandler {
     GameStuff stuff;
 
     public void update() {
-        if(stuff.playerShip.getAccelerating()) {
+        if (stuff.playerShip.getAccelerating()) {
             Accelerate(stuff.playerShip);
         }
-        if(stuff.enemyShip.getAccelerating()) {
+        if (stuff.enemyShip.getAccelerating()) {
             Accelerate(stuff.enemyShip);
         }
     }
