@@ -30,6 +30,7 @@ public class GameLogic extends Logic {
         weaponsHandler = new WeaponsHandler();
         shipHandler = new ShipHandler();
 
+        collisionHandler.setLogic(this);
         spaceObjectHandler.setLogic(this);
         gameInputHandler.setLogic(this);
     }
@@ -71,6 +72,10 @@ public class GameLogic extends Logic {
         spaceObjectHandler.setStuff(gameStuff);
         weaponsHandler.setStuff(gameStuff);
         shipHandler.setStuff(gameStuff);
+    }
+
+    public BlackHoleHandler getBlackHoleHandler() {
+        return blackHoleHandler;
     }
 
     public WeaponsHandler getWeaponsHandler() {

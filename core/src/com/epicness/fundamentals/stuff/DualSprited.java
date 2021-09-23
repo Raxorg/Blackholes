@@ -64,6 +64,10 @@ public class DualSprited implements Buttonable {
         foreground.translateY(amount);
     }
 
+    public float getWidth() {
+        return background.getWidth();
+    }
+
     public void setSize(float size) {
         setSize(size, size);
     }

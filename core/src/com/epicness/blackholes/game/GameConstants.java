@@ -3,9 +3,13 @@ package com.epicness.blackholes.game;
 public class GameConstants {
 
     // BlackHoles
-    public static final float BLACK_HOLE_SIZE = 100f;
-    public static final float BLACK_HOLE_COLLIDER_RADIUS = BLACK_HOLE_SIZE / 3f;
-    public static final float DISTORTION_SPEED = 50f;
+    public static final float BLACK_HOLE_INITIAL_SIZE = 100f;
+    public static final float BLACK_HOLE_MAX_SIZE = BLACK_HOLE_INITIAL_SIZE * 10f;
+    public static final float BLACK_HOLE_ROTATION_SPEED = 250f;
+    public static final float BLACK_HOLE_RADIUS_INCREMENT = 30f;
+    public static final float BH_COLLIDER_INITIAL_RADIUS = BLACK_HOLE_INITIAL_SIZE / 3f;
+    public static final float BH_COLLIDER_MAX_RADIUS = BH_COLLIDER_INITIAL_RADIUS * 10f;
+    public static final float DISTORTION_SPEED = 1f;
 
     // Junk
     public static final int INITIAL_JUNK = 50;

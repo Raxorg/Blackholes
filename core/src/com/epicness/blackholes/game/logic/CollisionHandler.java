@@ -11,6 +11,7 @@ import com.epicness.fundamentals.utils.Overlapper;
 
 public class CollisionHandler {
 
+    private GameLogic logic;
     private GameStuff stuff;
 
     public void update() {
@@ -23,15 +24,19 @@ public class CollisionHandler {
         DelayedRemovalArray<BlackHole> blackHoles = stuff.getBlackHoles();
         DelayedRemovalArray<Junk> junks = stuff.getJunks();
 
+        junks.begin();
         for (int i = 0; i < blackHoles.size; i++) {
             BlackHole blackHole = blackHoles.get(i);
             for (int j = 0; j < junks.size; j++) {
                 Junk junk = junks.get(j);
                 if (blackHole.getCollider().overlaps(junk.getCollider())) {
-                    System.out.println("BOOM");
+                    junks.removeValue(junk, true);
+                    logic.getBlackHoleHandler().junkAbsorbed(blackHole);
+                    break;
                 }
             }
         }
+        junks.end();
     }
 
     private void checkBlackHoleShipCollisions(Ship ship) {
@@ -45,6 +50,10 @@ public class CollisionHandler {
                 }
             }
         }
+    }
+
+    public void setLogic(GameLogic logic) {
+        this.logic = logic;
     }
 
     public void setStuff(GameStuff stuff) {

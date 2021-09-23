@@ -4,7 +4,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.fundamentals.input.InputHandler;
 
-import static com.badlogic.gdx.Input.Keys.*;
+import static com.badlogic.gdx.Input.Keys.E;
+import static com.badlogic.gdx.Input.Keys.ENTER;
+import static com.badlogic.gdx.Input.Keys.Q;
+import static com.badlogic.gdx.Input.Keys.SPACE;
+import static com.badlogic.gdx.Input.Keys.W;
 import static com.epicness.blackholes.game.GameConstants.SHIP_TURN_SPEED;
 
 public class GameInputHandler extends InputHandler {
@@ -12,6 +16,7 @@ public class GameInputHandler extends InputHandler {
     @Override
     public void keyDown(int keycode) {
         GameLogic logic = (GameLogic) this.logic;
+        GameStuff stuff = (GameStuff) this.stuff;
         switch (keycode) {
             case SPACE:
                 logic.getWeaponsHandler().player1Fire();
@@ -20,26 +25,27 @@ public class GameInputHandler extends InputHandler {
                 logic.getWeaponsHandler().player2Fire();
                 break;
             case W:
-                ((GameStuff)stuff).playerShip.setAccelerating(true);
+                stuff.playerShip.setAccelerating(true);
                 break;
             case Q:
-                ((GameStuff)stuff).playerShip.setAngularVelocity(SHIP_TURN_SPEED);
+                stuff.playerShip.setAngularVelocity(SHIP_TURN_SPEED);
                 break;
             case E:
-                ((GameStuff)stuff).playerShip.setAngularVelocity(-SHIP_TURN_SPEED);
+                stuff.playerShip.setAngularVelocity(-SHIP_TURN_SPEED);
         }
     }
 
     @Override
     public void keyUp(int keycode) {
-        switch(keycode) {
+        GameStuff stuff = (GameStuff) this.stuff;
+        switch (keycode) {
             case W:
-                ((GameStuff)stuff).playerShip.setAccelerating(false);
-                ((GameStuff)stuff).playerShip.setAcceleration(new Vector2(0, 0));
+                stuff.playerShip.setAccelerating(false);
+                stuff.playerShip.setAcceleration(new Vector2(0, 0));
                 break;
             case Q:
             case E:
-                ((GameStuff)stuff).playerShip.setAngularVelocity(0);
+                stuff.playerShip.setAngularVelocity(0);
 
         }
     }
