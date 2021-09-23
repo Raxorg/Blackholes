@@ -10,8 +10,8 @@ import com.epicness.fundamentals.stuff.DualSprited;
 public class ShipComponent extends SpaceObject {
 
     private final DualSprited dualSprited;
-    private final Polygon collider;
     private int health;
+    private final Polygon collider;
 
     public ShipComponent(Sprite normal, Sprite inverted, float[] colliderVertices) {
         dualSprited = new DualSprited(normal, inverted);
@@ -47,6 +47,14 @@ public class ShipComponent extends SpaceObject {
         dualSprited.setRotation(rotation);
         collider.setRotation(rotation);
 
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public Polygon getCollider() {

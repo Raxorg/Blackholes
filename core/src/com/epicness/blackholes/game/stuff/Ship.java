@@ -15,6 +15,7 @@ public class Ship extends SpaceObject {
 
     private final ArrayList<ShipComponent> components;
     private boolean Accelerating;
+    private float cooldown;
 
     public Ship(GameAssets assets) {
         //Creating the components
@@ -80,15 +81,23 @@ public class Ship extends SpaceObject {
         }
     }
 
+    public ArrayList<ShipComponent> getComponents() {
+        return components;
+    }
+
+    public boolean isAccelerating() {
+        return Accelerating;
+    }
+
     public void setAccelerating(boolean accelerating) {
         Accelerating = accelerating;
     }
 
-    public boolean getAccelerating() {
-        return Accelerating;
+    public float getCooldown() {
+        return cooldown;
     }
 
-    public ArrayList<ShipComponent> getComponents() {
-        return components;
+    public void setCooldown(float cooldown) {
+        this.cooldown = cooldown;
     }
 }

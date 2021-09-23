@@ -30,24 +30,25 @@ public class GameRenderer extends Renderer {
 
     private void drawUnmasked(GameStuff stuff) {
         spriteBatch.begin();
-        stuff.getBackground().drawBackground(spriteBatch);
-        for (int i = 0; i < stuff.getBlackHoles().size; i++) {
-            stuff.getBlackHoles().get(i).drawNormal(spriteBatch);
+        stuff.background.drawBackground(spriteBatch);
+        for (int i = 0; i < stuff.blackHoles.size; i++) {
+            stuff.blackHoles.get(i).drawNormal(spriteBatch);
         }
-        for (int i = 0; i < stuff.getJunks().size; i++) {
-            stuff.getJunks().get(i).drawNormal(spriteBatch);
+        for (int i = 0; i < stuff.junks.size; i++) {
+            stuff.junks.get(i).drawNormal(spriteBatch);
         }
+        stuff.damageOverlay.draw(spriteBatch);
         spriteBatch.end();
         shapeRenderer.begin();
-        for (int i = 0; i < stuff.getJunks().size; i++) {
-            stuff.getJunks().get(i).drawCollider(shapeRenderer);
+        for (int i = 0; i < stuff.junks.size; i++) {
+            stuff.junks.get(i).drawCollider(shapeRenderer);
         }
-        for (int i = 0; i < stuff.getBlackHoles().size; i++) {
-            stuff.getBlackHoles().get(i).drawDistortion(shapeRenderer);
-            stuff.getBlackHoles().get(i).drawCollider(shapeRenderer);
+        for (int i = 0; i < stuff.blackHoles.size; i++) {
+            stuff.blackHoles.get(i).drawDistortion(shapeRenderer);
+            stuff.blackHoles.get(i).drawCollider(shapeRenderer);
         }
-        stuff.playerShip.drawCollider(shapeRenderer);
-        stuff.enemyShip.drawCollider(shapeRenderer);
+        stuff.player1Ship.drawCollider(shapeRenderer);
+        stuff.player2Ship.drawCollider(shapeRenderer);
         shapeRenderer.end();
     }
 
@@ -66,8 +67,8 @@ public class GameRenderer extends Renderer {
 
         // 5. Render mask elements
         shapeRenderer.begin(Filled);
-        for (int i = 0; i < stuff.getBlackHoles().size; i++) {
-            stuff.getBlackHoles().get(i).drawDistortion(shapeRenderer);
+        for (int i = 0; i < stuff.blackHoles.size; i++) {
+            stuff.blackHoles.get(i).drawDistortion(shapeRenderer);
         }
         shapeRenderer.end();
     }
@@ -77,12 +78,12 @@ public class GameRenderer extends Renderer {
         Gdx.gl.glDepthFunc(GL20.GL_EQUAL);
 
         spriteBatch.begin();
-        stuff.getBackground().drawForeground(spriteBatch);
-        for (int i = 0; i < stuff.getBlackHoles().size; i++) {
-            stuff.getBlackHoles().get(i).drawInverted(spriteBatch);
+        stuff.background.drawForeground(spriteBatch);
+        for (int i = 0; i < stuff.blackHoles.size; i++) {
+            stuff.blackHoles.get(i).drawInverted(spriteBatch);
         }
-        for (int i = 0; i < stuff.getJunks().size; i++) {
-            stuff.getJunks().get(i).drawInverted(spriteBatch);
+        for (int i = 0; i < stuff.junks.size; i++) {
+            stuff.junks.get(i).drawInverted(spriteBatch);
         }
         spriteBatch.end();
     }

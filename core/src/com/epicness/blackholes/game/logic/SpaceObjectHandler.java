@@ -17,9 +17,12 @@ public class SpaceObjectHandler {
      * This function moves the ships and the junk (physics only)
      */
     public void moveAllObjects(float delta) {
-        moveObject(stuff.playerShip, delta);
-        for (int i = 0; i < stuff.getJunks().size; i++) {
-            moveObject(stuff.getJunks().get(i), delta);
+        moveObject(stuff.player1Ship, delta);
+        for (int i = 0; i < stuff.junks.size; i++) {
+            moveObject(stuff.junks.get(i), delta);
+        }
+        for (int i = 0; i < stuff.blackHoles.size; i++) {
+            moveObject(stuff.blackHoles.get(i), delta);
         }
     }
 

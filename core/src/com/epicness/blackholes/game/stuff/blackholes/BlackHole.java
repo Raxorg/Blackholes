@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.epicness.blackholes.game.stuff.Ship;
 import com.epicness.blackholes.game.stuff.SpaceObject;
 import com.epicness.fundamentals.stuff.AdvancedCircle;
 import com.epicness.fundamentals.stuff.DualSprited;
@@ -20,11 +21,12 @@ public class BlackHole extends SpaceObject {
     private final DualSprited normal;
     private final DualSprited inverted;
     private final AdvancedCircle distortion;
-    private final BlackHoleType blackHoleType;
+    private final BlackHoleType type;
+    private final Ship owner;
 
     public BlackHole(Sprite blackHole, Sprite blackHoleGlow,
                      Sprite invertedBlackHole, Sprite invertedBlackHoleGlow,
-                     BlackHoleType blackHoleType) {
+                     BlackHoleType type, Ship owner) {
         normal = new DualSprited(blackHoleGlow, blackHole);
         normal.setSize(BLACK_HOLE_INITIAL_SIZE, BLACK_HOLE_INITIAL_SIZE);
         normal.setOriginCenter();
@@ -36,7 +38,9 @@ public class BlackHole extends SpaceObject {
         distortion = new AdvancedCircle(0f);
         distortion.setPosition(BLACK_HOLE_INITIAL_SIZE / 2f, BLACK_HOLE_INITIAL_SIZE / 2f);
 
-        this.blackHoleType = blackHoleType;
+        this.type = type;
+
+        this.owner = owner;
 
         collider = new AdvancedCircle(BH_COLLIDER_INITIAL_RADIUS);
     }
@@ -100,8 +104,12 @@ public class BlackHole extends SpaceObject {
         distortion.radius += additionalRadius;
     }
 
-    public BlackHoleType getBlackHoleType() {
-        return blackHoleType;
+    public BlackHoleType getType() {
+        return type;
+    }
+
+    public Ship getOwner() {
+        return owner;
     }
 
     public AdvancedCircle getCollider() {

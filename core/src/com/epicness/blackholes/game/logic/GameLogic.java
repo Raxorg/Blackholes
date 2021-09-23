@@ -12,6 +12,7 @@ public class GameLogic extends Logic {
 
     private final BlackHoleHandler blackHoleHandler;
     private final CollisionHandler collisionHandler;
+    private final DamageHandler damageHandler;
     private final DistortionHandler distortionHandler;
     private final GameInputHandler gameInputHandler;
     private final JunkSpawner junkSpawner;
@@ -23,6 +24,7 @@ public class GameLogic extends Logic {
         super(sharedLogic);
         blackHoleHandler = new BlackHoleHandler();
         collisionHandler = new CollisionHandler();
+        damageHandler = new DamageHandler();
         distortionHandler = new DistortionHandler();
         gameInputHandler = new GameInputHandler();
         junkSpawner = new JunkSpawner();
@@ -31,8 +33,9 @@ public class GameLogic extends Logic {
         shipHandler = new ShipHandler();
 
         collisionHandler.setLogic(this);
-        spaceObjectHandler.setLogic(this);
         gameInputHandler.setLogic(this);
+        shipHandler.setLogic(this);
+        spaceObjectHandler.setLogic(this);
     }
 
     @Override
@@ -45,14 +48,16 @@ public class GameLogic extends Logic {
     public void update(float delta) {
         blackHoleHandler.update(delta);
         collisionHandler.update();
+        damageHandler.update(delta);
         distortionHandler.update(delta);
         spaceObjectHandler.moveAllObjects(delta);
-        shipHandler.update();
+        shipHandler.update(delta);
     }
 
     @Override
     public void setAssets(Assets assets) {
         GameAssets gameAssets = (GameAssets) assets;
+        blackHoleHandler.setAssets(gameAssets);
         junkSpawner.setAssets(gameAssets);
     }
 
@@ -66,6 +71,7 @@ public class GameLogic extends Logic {
         GameStuff gameStuff = (GameStuff) stuff;
         blackHoleHandler.setStuff(gameStuff);
         collisionHandler.setStuff(gameStuff);
+        damageHandler.setStuff(gameStuff);
         distortionHandler.setStuff(gameStuff);
         gameInputHandler.setStuff(gameStuff);
         junkSpawner.setStuff(gameStuff);
@@ -76,6 +82,10 @@ public class GameLogic extends Logic {
 
     public BlackHoleHandler getBlackHoleHandler() {
         return blackHoleHandler;
+    }
+
+    public DamageHandler getDamageHandler() {
+        return damageHandler;
     }
 
     public WeaponsHandler getWeaponsHandler() {

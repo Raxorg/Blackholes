@@ -16,13 +16,13 @@ public class CollisionHandler {
 
     public void update() {
         checkBlackHoleJunkCollisions();
-        checkBlackHoleShipCollisions(stuff.playerShip);
-        checkBlackHoleShipCollisions(stuff.enemyShip);
+        checkBlackHoleShipCollisions(stuff.player1Ship);
+        checkBlackHoleShipCollisions(stuff.player2Ship);
     }
 
     private void checkBlackHoleJunkCollisions() {
-        DelayedRemovalArray<BlackHole> blackHoles = stuff.getBlackHoles();
-        DelayedRemovalArray<Junk> junks = stuff.getJunks();
+        DelayedRemovalArray<BlackHole> blackHoles = stuff.blackHoles;
+        DelayedRemovalArray<Junk> junks = stuff.junks;
 
         junks.begin();
         for (int i = 0; i < blackHoles.size; i++) {
@@ -40,16 +40,24 @@ public class CollisionHandler {
     }
 
     private void checkBlackHoleShipCollisions(Ship ship) {
-        DelayedRemovalArray<BlackHole> blackHoles = stuff.getBlackHoles();
+        DelayedRemovalArray<BlackHole> blackHoles = stuff.blackHoles;
+        blackHoles.begin();
         for (int i = 0; i < blackHoles.size; i++) {
-            Circle blackHoleCollider = blackHoles.get(i).getCollider();
+            BlackHole blackHole = blackHoles.get(i);
+            if (blackHole.getOwner() == ship) {
+                continue;
+            }
+            Circle blackHoleCollider = blackHole.getCollider();
             for (int j = 0; j < ship.getComponents().size(); j++) {
                 Polygon shipCollider = ship.getComponents().get(j).getCollider();
                 if (Overlapper.overlapPolygonCircle(shipCollider, blackHoleCollider)) {
-                    System.out.println("BOOM SHIP");
+                    logic.getDamageHandler().takeDamage(ship);
+                    blackHoles.removeValue(blackHole, true);
+                    break;
                 }
             }
         }
+        blackHoles.end();
     }
 
     public void setLogic(GameLogic logic) {
