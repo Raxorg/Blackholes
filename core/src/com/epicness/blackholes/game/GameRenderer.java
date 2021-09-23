@@ -30,6 +30,7 @@ public class GameRenderer extends Renderer {
 
     private void drawUnmasked(GameStuff stuff) {
         spriteBatch.begin();
+        stuff.getBackground().drawBackground(spriteBatch);
         for (int i = 0; i < stuff.getBlackHoles().size; i++) {
             stuff.getBlackHoles().get(i).drawNormal(spriteBatch);
         }
@@ -76,6 +77,7 @@ public class GameRenderer extends Renderer {
         Gdx.gl.glDepthFunc(GL20.GL_EQUAL);
 
         spriteBatch.begin();
+        stuff.getBackground().drawForeground(spriteBatch);
         for (int i = 0; i < stuff.getBlackHoles().size; i++) {
             stuff.getBlackHoles().get(i).drawInverted(spriteBatch);
         }
