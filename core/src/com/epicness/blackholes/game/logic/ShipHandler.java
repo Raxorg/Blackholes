@@ -23,7 +23,6 @@ public class ShipHandler {
     }
 
     private void Accelerate(Ship ship) {
-        System.out.println("Accelerating!");
         //first calculate a forward vector for the ship
         Vector2 forward = new Vector2(0, 1);
         forward = forward.rotateDeg(ship.getRotation());

@@ -35,11 +35,12 @@ public class GameInputHandler extends InputHandler {
         switch(keycode) {
             case W:
                 ((GameStuff)stuff).playerShip.setAccelerating(false);
-                ((GameStuff)stuff).playerShip.setAcceleration(Vector2.Zero);
+                ((GameStuff)stuff).playerShip.setAcceleration(new Vector2(0, 0));
                 break;
             case Q:
             case E:
                 ((GameStuff)stuff).playerShip.setAngularVelocity(0);
+
         }
     }
 }
