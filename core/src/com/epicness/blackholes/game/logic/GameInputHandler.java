@@ -70,7 +70,7 @@ public class GameInputHandler extends InputHandler {
             case D:
                 stuff.player1Ship.setAngularVelocity(0);
                 break;
-            // Ship 1 controls
+            // Ship 2 controls
             case UP:
                 stuff.player2Ship.setAccelerating(false);
                 stuff.player2Ship.setAcceleration(new Vector2(0, 0));
