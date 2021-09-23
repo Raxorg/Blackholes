@@ -7,7 +7,6 @@ import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.epicness.blackholes.game.GameAssets;
 import com.epicness.blackholes.game.stuff.blackholes.BlackHole;
 import com.epicness.fundamentals.stuff.DualSprited;
-import com.epicness.fundamentals.stuff.Sprited;
 import com.epicness.fundamentals.stuff.Stuff;
 
 import static com.epicness.blackholes.game.stuff.blackholes.BlackHoleType.ALPHA;
