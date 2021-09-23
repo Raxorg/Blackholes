@@ -9,36 +9,37 @@ import java.util.ArrayList;
 
 /**
  * The ship will be a collection of components that each do something specific.
- * Each of these components have a certain amount of health, and when they're destroyed, they will break off the ship and become their own SpaceObject
+ * Each of these components have a certain amount of health, and when they're
+ * destroyed, they will break off the ship and become their own SpaceObject
  */
 public class Ship extends SpaceObject {
 
     private final ArrayList<ShipComponent> components;
-    private boolean Accelerating;
+    private boolean accelerating;
     private float cooldown;
 
     public Ship(GameAssets assets) {
-        //Creating the components
-        ShipComponent shield = new ShipComponent(
-                assets.getBlackHole(), assets.getBlackHoleGlow(), // Pending asset
-                new float[]{-1, -2, -0.5f, 2, 0.5f, 2, 1, -2});
+        // Creating the components
         ShipComponent cockpit = new ShipComponent(
-                assets.getBlackHole(), assets.getBlackHoleGlow(), // Pending asset
+                assets.getShipCockpit(), assets.getShipCockpit(),   // Pending asset
                 new float[]{-0.55f, -1.5f, -0.25f, 1.5f, 0.25f, 1.5f, 0.55f, -1.5f});
-        ShipComponent thruster = new ShipComponent(
-                assets.getBlackHole(), assets.getBlackHoleGlow(), // Pending asset
-                new float[]{-0.5f, -2, 0.5f, -2, 0.75f, -2.5f, -0.75f, -2.5f});
         ShipComponent gun = new ShipComponent(
-                assets.getBlackHole(), assets.getBlackHoleGlow(), // Pending asset
+                assets.getShipGun(), assets.getShipGun(),           // Pending asset
                 new float[]{-0.25f, 2, -0.25f, 2.75f, 0.25f, 2.75f, 0.25f, 2});
+        ShipComponent shield = new ShipComponent(
+                assets.getShipShields(), assets.getShipShields(),   // Pending asset
+                new float[]{-1, -2, -0.5f, 2, 0.5f, 2, 1, -2});
+        ShipComponent thruster = new ShipComponent(
+                assets.getShipThruster(), assets.getShipThruster(), // Pending asset
+                new float[]{-0.5f, -2, 0.5f, -2, 0.75f, -2.5f, -0.75f, -2.5f});
 
         components = new ArrayList<>();
-        components.add(shield);
         components.add(cockpit);
-        components.add(thruster);
         components.add(gun);
+        components.add(shield);
+        components.add(thruster);
 
-        //Now position and scale them
+        // Now position and scale them
         for (ShipComponent sc : components) {
             sc.getCollider().setScale(15, 15);
         }
@@ -86,11 +87,11 @@ public class Ship extends SpaceObject {
     }
 
     public boolean isAccelerating() {
-        return Accelerating;
+        return accelerating;
     }
 
     public void setAccelerating(boolean accelerating) {
-        Accelerating = accelerating;
+        this.accelerating = accelerating;
     }
 
     public float getCooldown() {

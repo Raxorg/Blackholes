@@ -68,6 +68,10 @@ public class DualSprited implements Buttonable {
         return background.getWidth();
     }
 
+    public float getHeight() {
+        return background.getHeight();
+    }
+
     public void setSize(float size) {
         setSize(size, size);
     }
@@ -75,6 +79,11 @@ public class DualSprited implements Buttonable {
     public void setSize(float width, float height) {
         background.setSize(width, height);
         foreground.setSize(width, height);
+    }
+
+    public void setScale(float scale) {
+        background.setScale(scale);
+        foreground.setScale(scale);
     }
 
     public void setRotation(float rotation) {

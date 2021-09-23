@@ -50,6 +50,7 @@ public class GameLogic extends Logic {
         collisionHandler.update();
         damageHandler.update(delta);
         distortionHandler.update(delta);
+        junkSpawner.update(delta);
         spaceObjectHandler.moveAllObjects(delta);
         shipHandler.update(delta);
     }

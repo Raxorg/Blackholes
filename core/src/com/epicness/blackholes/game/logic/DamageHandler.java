@@ -2,7 +2,6 @@ package com.epicness.blackholes.game.logic;
 
 import com.badlogic.gdx.graphics.Color;
 import com.epicness.blackholes.game.stuff.GameStuff;
-import com.epicness.blackholes.game.stuff.Ship;
 import com.epicness.blackholes.game.stuff.ShipComponent;
 import com.epicness.fundamentals.stuff.Sprited;
 
@@ -14,11 +13,25 @@ public class DamageHandler {
     // Logic
     private float progress;
 
-    public void takeDamage(Ship ship) {
-        for (int i = 0; i < ship.getComponents().size(); i++) {
-            ShipComponent component = ship.getComponents().get(i);
-            component.setHealth(component.getHealth() - 10);
-            // TODO: 23/9/2021 Check component health to detach it
+    public void takeDamage(ShipComponent component) {
+        component.setHealth(component.getHealth() - 10);
+        switch (component.getHealth()) {
+            case 0:
+                component.setColor(Color.GRAY);
+                // TODO: 23/9/2021 Detach
+                break;
+            case 10:
+                component.setColor(Color.RED);
+                break;
+            case 20:
+                component.setColor(Color.ORANGE);
+                break;
+            case 30:
+                component.setColor(Color.YELLOW);
+                break;
+            case 40:
+                component.setColor(Color.GREEN);
+                break;
         }
         progress = 1f;
     }

@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.blackholes.game.stuff.Junk;
 import com.epicness.blackholes.game.stuff.Ship;
+import com.epicness.blackholes.game.stuff.ShipComponent;
 import com.epicness.blackholes.game.stuff.blackholes.BlackHole;
 import com.epicness.fundamentals.utils.Overlapper;
 
@@ -49,9 +50,10 @@ public class CollisionHandler {
             }
             Circle blackHoleCollider = blackHole.getCollider();
             for (int j = 0; j < ship.getComponents().size(); j++) {
-                Polygon shipCollider = ship.getComponents().get(j).getCollider();
+                ShipComponent component = ship.getComponents().get(j);
+                Polygon shipCollider = component.getCollider();
                 if (Overlapper.overlapPolygonCircle(shipCollider, blackHoleCollider)) {
-                    logic.getDamageHandler().takeDamage(ship);
+                    logic.getDamageHandler().takeDamage(component);
                     blackHoles.removeValue(blackHole, true);
                     break;
                 }

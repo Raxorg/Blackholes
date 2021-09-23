@@ -37,6 +37,8 @@ public class GameRenderer extends Renderer {
         for (int i = 0; i < stuff.junks.size; i++) {
             stuff.junks.get(i).drawNormal(spriteBatch);
         }
+        stuff.player1Ship.drawNormal(spriteBatch);
+        stuff.player2Ship.drawNormal(spriteBatch);
         stuff.damageOverlay.draw(spriteBatch);
         spriteBatch.end();
         shapeRenderer.begin();
@@ -85,6 +87,8 @@ public class GameRenderer extends Renderer {
         for (int i = 0; i < stuff.junks.size; i++) {
             stuff.junks.get(i).drawInverted(spriteBatch);
         }
+        stuff.player1Ship.drawInverted(spriteBatch);
+        stuff.player2Ship.drawInverted(spriteBatch);
         spriteBatch.end();
     }
 }

@@ -18,6 +18,7 @@ public class SpaceObjectHandler {
      */
     public void moveAllObjects(float delta) {
         moveObject(stuff.player1Ship, delta);
+        moveObject(stuff.player2Ship, delta);
         for (int i = 0; i < stuff.junks.size; i++) {
             moveObject(stuff.junks.get(i), delta);
         }

@@ -19,9 +19,10 @@ public class GameConstants {
     public static final float JUNK_COLLIDER_RADIUS = JUNK_SIZE / 3f;
 
     // Ships
-    public static final float SHIP_ACCELERATION_SPEED = 1f;
+    public static final float SHIP_ACCELERATION_SPEED = 10f;
     public static final float SHIP_TURN_SPEED = 100f;
     public static final float SHIP_SHOOT_COOLDOWN = 1.5f;
+    public static final int COMPONENT_STARTING_HEALTH = 50;
 
     // Other
     public static final float DAMAGE_FADE_SPEED = 2f;

@@ -21,7 +21,7 @@ public class BlackHoleHandler {
                 assets.getBlackHole(), assets.getBlackHoleGlow(),
                 assets.getInvertedBlackHole(), assets.getInvertedBlackHoleGlow(),
                 type, owner);
-        blackHole.setPosition(owner.getPosition().cpy());
+        blackHole.setPosition(owner.getPosition().cpy().add(direction.cpy().scl(70f)));
         blackHole.setVelocity(direction.scl(100f));
         stuff.blackHoles.add(blackHole);
     }
