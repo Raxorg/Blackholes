@@ -12,6 +12,10 @@ public class MenuInputHandler extends InputHandler {
 
         if (stuff.getPlayButton().contains(x, y)) {
             logic.getButtonHandler().playButtonPress();
+        } else if (stuff.getTutorialButton().contains(x, y)) {
+            logic.getButtonHandler().tutorialButtonPress();
+        } else if (stuff.getCreditsButton().contains(x, y)) {
+            logic.getButtonHandler().creditsButtonPress();
         }
     }
 

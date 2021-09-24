@@ -33,6 +33,7 @@ public class MenuLogic extends Logic {
 
     @Override
     public void setInput(SharedInput input) {
+        buttonHandler.setInput(input);
         menuInputHandler.setInput(input);
     }
 
