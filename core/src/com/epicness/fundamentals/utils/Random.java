@@ -44,7 +44,7 @@ public class Random {
         Color color;
         do {
             color = randomColor();
-        } while (color == excludedColor);
+        } while (color.equals(excludedColor));
         return color;
     }
 

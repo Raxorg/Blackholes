@@ -1,5 +1,6 @@
 package com.epicness.blackholes.game.stuff;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -17,8 +18,9 @@ public class Ship extends SpaceObject {
     private final ArrayList<ShipComponent> components;
     private boolean accelerating;
     private float cooldown;
+    private Color team;
 
-    public Ship(GameAssets assets) {
+    public Ship(GameAssets assets, Color team) {
         // Creating the components
         ShipComponent cockpit = new ShipComponent(
                 assets.getShipCockpit(), assets.getShipCockpitInverted(),
@@ -47,6 +49,8 @@ public class Ship extends SpaceObject {
         for (ShipComponent sc : components) {
             sc.getCollider().setScale(15, 15);
         }
+
+        this.team = team;
     }
 
     @Override
@@ -104,5 +108,9 @@ public class Ship extends SpaceObject {
 
     public void setCooldown(float cooldown) {
         this.cooldown = cooldown;
+    }
+
+    public Color getTeam() {
+        return team;
     }
 }

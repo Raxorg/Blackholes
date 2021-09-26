@@ -8,6 +8,7 @@ import com.epicness.blackholes.game.stuff.Ship;
 import com.epicness.blackholes.game.stuff.blackholes.BlackHole;
 import com.epicness.blackholes.game.stuff.blackholes.BlackHoleType;
 
+import static com.epicness.blackholes.game.GameConstants.BLACK_HOLE_INITIAL_LIFE;
 import static com.epicness.blackholes.game.GameConstants.BLACK_HOLE_RADIUS_INCREMENT;
 import static com.epicness.blackholes.game.GameConstants.BLACK_HOLE_ROTATION_SPEED;
 
@@ -21,8 +22,9 @@ public class BlackHoleHandler {
                 assets.getBlackHole(), assets.getBlackHoleGlow(),
                 assets.getInvertedBlackHole(), assets.getInvertedBlackHoleGlow(),
                 type, owner);
-        blackHole.setPosition(owner.getPosition().cpy().add(direction.cpy().scl(70f)));
+        blackHole.setPosition(owner.getPosition().cpy().add(direction.cpy().scl(80f)));
         blackHole.setVelocity(direction.scl(100f));
+        blackHole.setColor(owner.getTeam());
         stuff.blackHoles.add(blackHole);
     }
 
@@ -58,6 +60,7 @@ public class BlackHoleHandler {
 
     public void junkAbsorbed(BlackHole blackHole) {
         blackHole.addRadius(BLACK_HOLE_RADIUS_INCREMENT);
+        blackHole.setLifeLeft(Math.min(blackHole.getLifeLeft() + 1f, BLACK_HOLE_INITIAL_LIFE));
     }
 
     // Structure

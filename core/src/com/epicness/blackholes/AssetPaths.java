@@ -3,6 +3,8 @@ package com.epicness.blackholes;
 public class AssetPaths {
 
     // Menu
+    public static final String BGM_PATH = "audio/phantomFromSpace.mp3";
+
     public static final String BACKGROUND_PATH = "images/menu/background.png";
     public static final String TUTORIAL_PATH = "images/menu/tutorial.png";
     public static final String CREDITS_PATH = "images/menu/credits.png";

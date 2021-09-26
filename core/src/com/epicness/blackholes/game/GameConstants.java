@@ -13,9 +13,9 @@ public class GameConstants {
     public static final float DISTORTION_SPEED = 60f;
 
     // Junk
-    public static final int INITIAL_JUNK = 50;
-    public static final float JUNK_SPAWN_RATE = 4f;
-    public static final float JUNK_SIZE = 25f;
+    public static final int INITIAL_JUNK = 35;
+    public static final float JUNK_SPAWN_RATE = 1.5f;
+    public static final float JUNK_SIZE = 30f;
     public static final float JUNK_RADIUS = JUNK_SIZE / 2f;
     public static final float JUNK_COLLIDER_RADIUS = JUNK_SIZE / 3f;
 

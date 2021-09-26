@@ -1,6 +1,8 @@
 package com.epicness.blackholes.menu.logic;
 
+import com.epicness.blackholes.menu.MenuAssets;
 import com.epicness.blackholes.menu.MenuStuff;
+import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.input.SharedInput;
 import com.epicness.fundamentals.logic.Logic;
 import com.epicness.fundamentals.logic.SharedLogic;
@@ -29,6 +31,13 @@ public class MenuLogic extends Logic {
     public void update(float delta) {
         sharedLogic.getTransitionHandler().update();
         sharedLogic.getAssetLoader().update();
+    }
+
+    @Override
+    public void setAssets(Assets assets) {
+        MenuAssets menuAssets = (MenuAssets) assets;
+        menuAssets.getBackgroundMusic().setLooping(true);
+        menuAssets.getBackgroundMusic().play();
     }
 
     @Override
