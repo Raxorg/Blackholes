@@ -4,6 +4,8 @@ public class AssetPaths {
 
     // Menu
     public static final String BACKGROUND_PATH = "images/menu/background.png";
+    public static final String TUTORIAL_PATH = "images/menu/tutorial.png";
+    public static final String CREDITS_PATH = "images/menu/credits.png";
     // Game
     public static final String INVERTED_BACKGROUND_PATH = "images/game/invertedBackground.png";
     public static final String BLACK_HOLE_PATH = "images/game/blackHole.png";

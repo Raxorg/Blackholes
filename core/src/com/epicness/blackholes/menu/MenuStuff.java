@@ -1,5 +1,6 @@
 package com.epicness.blackholes.menu;
 
+import com.badlogic.gdx.graphics.Color;
 import com.epicness.fundamentals.stuff.NinePatchedText;
 import com.epicness.fundamentals.stuff.Sprited;
 import com.epicness.fundamentals.stuff.Stuff;
@@ -17,6 +18,7 @@ public class MenuStuff extends Stuff {
 
     private Sprited background;
     private NinePatchedText playButton, tutorialButton, creditsButton;
+    private Sprited tutorial, credits;
 
     @Override
     public void initializeStuff() {
@@ -52,6 +54,14 @@ public class MenuStuff extends Stuff {
         creditsButton.setPosition(BUTTON_X, CREDITS_BUTTON_Y);
         creditsButton.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
         creditsButton.setText("Credits");
+
+        tutorial = new Sprited(assets.getTutorial());
+        tutorial.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
+        tutorial.setColor(Color.CLEAR);
+
+        credits = new Sprited(assets.getCredits());
+        credits.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
+        credits.setColor(Color.CLEAR);
     }
 
     public Sprited getBackground() {
@@ -68,5 +78,13 @@ public class MenuStuff extends Stuff {
 
     public NinePatchedText getCreditsButton() {
         return creditsButton;
+    }
+
+    public Sprited getTutorial() {
+        return tutorial;
+    }
+
+    public Sprited getCredits() {
+        return credits;
     }
 }

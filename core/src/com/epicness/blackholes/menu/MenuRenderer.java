@@ -17,6 +17,8 @@ public class MenuRenderer extends Renderer {
         stuff.getPlayButton().draw(spriteBatch);
         stuff.getTutorialButton().draw(spriteBatch);
         stuff.getCreditsButton().draw(spriteBatch);
+        stuff.getTutorial().draw(spriteBatch);
+        stuff.getCredits().draw(spriteBatch);
         spriteBatch.end();
     }
 }

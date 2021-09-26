@@ -11,6 +11,8 @@ public class ButtonHandler {
     private SharedInput input;
     private SharedLogic sharedLogic;
     private MenuStuff stuff;
+    // Logic
+    private boolean onTutorial, onCredits;
 
     public void playButtonPress() {
         stuff.getPlayButton().setColor(Color.BLACK);
@@ -28,14 +30,26 @@ public class ButtonHandler {
         stuff.getPlayButton().setColor(Color.WHITE);
         stuff.getTutorialButton().setColor(Color.WHITE);
         stuff.getCreditsButton().setColor(Color.WHITE);
+        if (onTutorial) {
+            stuff.getTutorial().setColor(Color.CLEAR);
+            onTutorial = false;
+            return;
+        }
+        if (onCredits) {
+            stuff.getCredits().setColor(Color.CLEAR);
+            onCredits = false;
+            return;
+        }
         if (stuff.getPlayButton().contains(x, y)) {
             sharedLogic.getTransitionHandler().startTransition(new GameInitializer());
             sharedLogic.getTransitionHandler().allowTransition();
             input.setEnabled(false);
         } else if (stuff.getTutorialButton().contains(x, y)) {
-            System.out.println("TUTORIAL");
+            stuff.getTutorial().setColor(Color.WHITE);
+            onTutorial = true;
         } else if (stuff.getCreditsButton().contains(x, y)) {
-            System.out.println("CREDITS");
+            stuff.getCredits().setColor(Color.WHITE);
+            onCredits = true;
         }
     }
 
