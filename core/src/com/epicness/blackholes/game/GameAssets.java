@@ -1,5 +1,6 @@
 package com.epicness.blackholes.game;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.epicness.fundamentals.assets.Assets;
@@ -15,16 +16,22 @@ import static com.epicness.blackholes.AssetPaths.INVERTED_BLACK_HOLE_PATH;
 import static com.epicness.blackholes.AssetPaths.LEFT_GUN_PATH;
 import static com.epicness.blackholes.AssetPaths.NUCLEUS_PATH;
 import static com.epicness.blackholes.AssetPaths.RIGHT_GUN_PATH;
+import static com.epicness.blackholes.AssetPaths.SHOOT_PATH;
 import static com.epicness.blackholes.AssetPaths.THRUSTER_PATH;
 
 public class GameAssets extends Assets {
 
+    // Audio
+    private Sound shoot;
+    // Sprites
     private Sprite background, invertedBackground;
     private Sprite blackHole, blackHoleGlow, invertedBlackHole, invertedBlackHoleGlow;
     private Sprite shipCockpit, shipLeftGun, shipRightGun, shipNucleus, shipThruster;
 
     @Override
     public void queueAssetLoading() {
+        assetManager.load(SHOOT_PATH, Sound.class);
+
         assetManager.load(BACKGROUND_PATH, Texture.class);
         assetManager.load(INVERTED_BACKGROUND_PATH, Texture.class);
         assetManager.load(BLACK_HOLE_PATH, Texture.class);
@@ -41,6 +48,8 @@ public class GameAssets extends Assets {
 
     @Override
     public void initializeAssets() {
+        shoot = assetManager.get(SHOOT_PATH, Sound.class);
+
         background = new Sprite(assetManager.get(BACKGROUND_PATH, Texture.class));
         invertedBackground = new Sprite(assetManager.get(INVERTED_BACKGROUND_PATH, Texture.class));
         blackHole = new Sprite(assetManager.get(BLACK_HOLE_PATH, Texture.class));
@@ -59,6 +68,12 @@ public class GameAssets extends Assets {
         shipThruster = new Sprite(assetManager.get(THRUSTER_PATH, Texture.class));
     }
 
+    // Audio
+    public Sound getShoot() {
+        return shoot;
+    }
+
+    // Sprites
     public Sprite getBackground() {
         return background;
     }

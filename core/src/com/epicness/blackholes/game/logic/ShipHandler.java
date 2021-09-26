@@ -1,6 +1,7 @@
 package com.epicness.blackholes.game.logic;
 
 import com.badlogic.gdx.math.Vector2;
+import com.epicness.blackholes.game.GameAssets;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.blackholes.game.stuff.Ship;
 
@@ -13,6 +14,7 @@ import static com.epicness.blackholes.game.stuff.blackholes.BlackHoleType.ALPHA;
  */
 public class ShipHandler {
 
+    private GameAssets assets;
     private GameLogic logic;
     private GameStuff stuff;
 
@@ -47,6 +49,11 @@ public class ShipHandler {
         forward = forward.rotateDeg(ship.getRotation());
         logic.getBlackHoleHandler().spawnBlackHole(ship, forward, ALPHA);
         ship.setCooldown(SHIP_SHOOT_COOLDOWN);
+        assets.getShoot().play();
+    }
+
+    public void setAssets(GameAssets assets) {
+        this.assets = assets;
     }
 
     public void setLogic(GameLogic logic) {

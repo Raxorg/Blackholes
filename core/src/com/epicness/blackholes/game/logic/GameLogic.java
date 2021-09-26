@@ -60,6 +60,7 @@ public class GameLogic extends Logic {
         GameAssets gameAssets = (GameAssets) assets;
         blackHoleHandler.setAssets(gameAssets);
         junkSpawner.setAssets(gameAssets);
+        shipHandler.setAssets(gameAssets);
     }
 
     @Override
