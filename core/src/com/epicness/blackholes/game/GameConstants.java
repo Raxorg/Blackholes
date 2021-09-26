@@ -10,7 +10,7 @@ public class GameConstants {
     public static final float BLACK_HOLE_RADIUS_INCREMENT = 15f;
     public static final float BH_COLLIDER_INITIAL_RADIUS = BLACK_HOLE_INITIAL_SIZE / 3f;
     public static final float BH_COLLIDER_MAX_RADIUS = BH_COLLIDER_INITIAL_RADIUS * 10f;
-    public static final float DISTORTION_SPEED = 60f;
+    public static final float DISTORTION_SPEED = 70f;
 
     // Junk
     public static final int INITIAL_JUNK = 35;

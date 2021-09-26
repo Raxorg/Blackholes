@@ -8,6 +8,8 @@ import com.epicness.blackholes.game.stuff.Ship;
 import static com.epicness.blackholes.game.GameConstants.SHIP_ACCELERATION_SPEED;
 import static com.epicness.blackholes.game.GameConstants.SHIP_SHOOT_COOLDOWN;
 import static com.epicness.blackholes.game.stuff.blackholes.BlackHoleType.ALPHA;
+import static com.epicness.fundamentals.SharedConstants.CAMERA_HEIGHT;
+import static com.epicness.fundamentals.SharedConstants.CAMERA_WIDTH;
 
 /**
  * This class handles the Ships movement logic
@@ -27,6 +29,9 @@ public class ShipHandler {
 
         applyAcceleration(ship1);
         applyAcceleration(ship2);
+
+        checkBounds(ship1);
+        checkBounds(ship2);
     }
 
     private void applyAcceleration(Ship ship) {
@@ -39,6 +44,20 @@ public class ShipHandler {
         forward = forward.scl(SHIP_ACCELERATION_SPEED);
         //Now this vector, scaled by SHIP_SPEED should be added to the ships acceleration vector
         ship.addAcceleration(forward);
+    }
+
+    private void checkBounds(Ship ship) {
+        Vector2 position = ship.getPosition();
+        if (position.x < 0f) {
+            ship.setPosition(new Vector2(CAMERA_WIDTH, position.y));
+        } else if (position.x > CAMERA_WIDTH) {
+            ship.setPosition(new Vector2(0f, position.y));
+        }
+        if (position.y < 0f) {
+            ship.setPosition(new Vector2(position.x, CAMERA_HEIGHT));
+        } else if (position.y > CAMERA_HEIGHT) {
+            ship.setPosition(new Vector2(position.x, 0f));
+        }
     }
 
     public void shoot(Ship ship) {
