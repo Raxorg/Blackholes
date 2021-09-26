@@ -1,6 +1,5 @@
 package com.epicness.blackholes.game.stuff;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
@@ -29,10 +28,10 @@ public class GameStuff extends Stuff {
         background.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
 
         player1Ship = new Ship(assets);
-        player1Ship.setPosition(new Vector2(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f));
+        player1Ship.setPosition(new Vector2(100, CAMERA_HEIGHT / 2f));
 
         player2Ship = new Ship(assets);
-        player2Ship.setPosition(new Vector2(300, 300));
+        player2Ship.setPosition(new Vector2(CAMERA_WIDTH - 100, 300));
 
         junks = new DelayedRemovalArray<>();
 
