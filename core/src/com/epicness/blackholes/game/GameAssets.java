@@ -11,6 +11,7 @@ import static com.epicness.blackholes.AssetPaths.BLACK_HOLE_GLOW_PATH;
 import static com.epicness.blackholes.AssetPaths.BLACK_HOLE_PATH;
 import static com.epicness.blackholes.AssetPaths.COCKPIT_INVERTED_PATH;
 import static com.epicness.blackholes.AssetPaths.COCKPIT_PATH;
+import static com.epicness.blackholes.AssetPaths.GAME_OVER_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BACKGROUND_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BLACK_HOLE_GLOW_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BLACK_HOLE_PATH;
@@ -33,6 +34,7 @@ public class GameAssets extends Assets {
     private Sprite blackHole, blackHoleGlow, invertedBlackHole, invertedBlackHoleGlow;
     private Sprite shipCockpit, shipLeftGun, shipRightGun, shipNucleus, shipThruster;
     private Sprite shipCockpitInverted, shipLeftGunInverted, shipRightGunInverted, shipNucleusInverted, shipThrusterInverted;
+    private Sprite gameOver;
 
     @Override
     public void queueAssetLoading() {
@@ -56,6 +58,8 @@ public class GameAssets extends Assets {
         assetManager.load(RIGHT_GUN_INVERTED_PATH, Texture.class);
         assetManager.load(NUCLEUS_INVERTED_PATH, Texture.class);
         assetManager.load(THRUSTER_INVERTED_PATH, Texture.class);
+
+        assetManager.load(GAME_OVER_PATH, Texture.class);
     }
 
     @Override
@@ -84,6 +88,8 @@ public class GameAssets extends Assets {
         shipRightGunInverted = new Sprite(assetManager.get(RIGHT_GUN_INVERTED_PATH, Texture.class));
         shipNucleusInverted = new Sprite(assetManager.get(NUCLEUS_INVERTED_PATH, Texture.class));
         shipThrusterInverted = new Sprite(assetManager.get(THRUSTER_INVERTED_PATH, Texture.class));
+
+        gameOver = new Sprite(assetManager.get(GAME_OVER_PATH, Texture.class));
     }
 
     // Audio
@@ -154,5 +160,9 @@ public class GameAssets extends Assets {
 
     public Sprite getShipThrusterInverted() {
         return shipThrusterInverted;
+    }
+
+    public Sprite getGameOver() {
+        return gameOver;
     }
 }

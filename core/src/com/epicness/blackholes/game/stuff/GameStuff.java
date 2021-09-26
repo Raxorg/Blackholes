@@ -19,7 +19,7 @@ public class GameStuff extends Stuff {
     public Ship player1Ship, player2Ship;
     public DelayedRemovalArray<Junk> junks;
     public DelayedRemovalArray<BlackHole> blackHoles;
-    public Sprited damageOverlay;
+    public Sprited damageOverlay, gameOverOverlay;
 
     @Override
     public void initializeStuff() {
@@ -42,5 +42,9 @@ public class GameStuff extends Stuff {
         damageOverlay = new Sprited(sharedAssets.getPixel());
         damageOverlay.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
         damageOverlay.setColor(Color.CLEAR);
+
+        gameOverOverlay = new Sprited(assets.getGameOver());
+        gameOverOverlay.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
+        gameOverOverlay.setColor(Color.CLEAR);
     }
 }

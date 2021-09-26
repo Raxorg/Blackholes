@@ -28,4 +28,6 @@ public class AssetPaths {
     public static final String RIGHT_GUN_INVERTED_PATH = "images/game/shipRightGunInverted.png";
     public static final String NUCLEUS_INVERTED_PATH = "images/game/shipNucleusInverted.png";
     public static final String THRUSTER_INVERTED_PATH = "images/game/shipThrusterInverted.png";
+
+    public static final String GAME_OVER_PATH = "images/game/gameOver.png";
 }

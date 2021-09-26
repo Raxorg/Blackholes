@@ -15,6 +15,7 @@ public class GameLogic extends Logic {
     private final DamageHandler damageHandler;
     private final DistortionHandler distortionHandler;
     private final GameInputHandler gameInputHandler;
+    private final GameOverHandler gameOverHandler;
     private final JunkSpawner junkSpawner;
     private final SpaceObjectHandler spaceObjectHandler;
     private final WeaponsHandler weaponsHandler;
@@ -27,6 +28,7 @@ public class GameLogic extends Logic {
         damageHandler = new DamageHandler();
         distortionHandler = new DistortionHandler();
         gameInputHandler = new GameInputHandler();
+        gameOverHandler = new GameOverHandler();
         junkSpawner = new JunkSpawner();
         spaceObjectHandler = new SpaceObjectHandler();
         weaponsHandler = new WeaponsHandler();
@@ -34,6 +36,7 @@ public class GameLogic extends Logic {
 
         collisionHandler.setLogic(this);
         gameInputHandler.setLogic(this);
+        gameOverHandler.setLogic(this);
         shipHandler.setLogic(this);
         spaceObjectHandler.setLogic(this);
     }
@@ -76,6 +79,7 @@ public class GameLogic extends Logic {
         damageHandler.setStuff(gameStuff);
         distortionHandler.setStuff(gameStuff);
         gameInputHandler.setStuff(gameStuff);
+        gameOverHandler.setStuff(gameStuff);
         junkSpawner.setStuff(gameStuff);
         spaceObjectHandler.setStuff(gameStuff);
         weaponsHandler.setStuff(gameStuff);
@@ -88,6 +92,10 @@ public class GameLogic extends Logic {
 
     public DamageHandler getDamageHandler() {
         return damageHandler;
+    }
+
+    public GameOverHandler getGameOverHandler() {
+        return gameOverHandler;
     }
 
     public WeaponsHandler getWeaponsHandler() {

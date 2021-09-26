@@ -40,6 +40,7 @@ public class GameRenderer extends Renderer {
         stuff.player1Ship.drawNormal(spriteBatch);
         stuff.player2Ship.drawNormal(spriteBatch);
         stuff.damageOverlay.draw(spriteBatch);
+        stuff.gameOverOverlay.draw(spriteBatch);
         spriteBatch.end();
         shapeRenderer.begin();
         for (int i = 0; i < stuff.blackHoles.size; i++) {

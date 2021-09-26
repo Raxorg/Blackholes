@@ -10,6 +10,7 @@ import static com.badlogic.gdx.Input.Keys.D;
 import static com.badlogic.gdx.Input.Keys.ENTER;
 import static com.badlogic.gdx.Input.Keys.F;
 import static com.badlogic.gdx.Input.Keys.LEFT;
+import static com.badlogic.gdx.Input.Keys.R;
 import static com.badlogic.gdx.Input.Keys.RIGHT;
 import static com.badlogic.gdx.Input.Keys.SPACE;
 import static com.badlogic.gdx.Input.Keys.UP;
@@ -54,6 +55,10 @@ public class GameInputHandler extends InputHandler {
                 break;
             case CONTROL_RIGHT:
                 logic.getShipHandler().shoot(stuff.player2Ship);
+                break;
+            // Restart
+            case R:
+                logic.getGameOverHandler().restart();
         }
     }
 

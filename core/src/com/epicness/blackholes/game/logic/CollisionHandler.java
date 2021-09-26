@@ -58,6 +58,7 @@ public class CollisionHandler {
                 if (Overlapper.overlapPolygonCircle(shipCollider, blackHoleCollider)) {
                     logic.getDamageHandler().takeDamage(component);
                     blackHoles.removeValue(blackHole, true);
+                    logic.getGameOverHandler().checkGameOver(ship);
                     break;
                 }
             }
