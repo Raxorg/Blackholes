@@ -42,15 +42,9 @@ public class GameRenderer extends Renderer {
         stuff.damageOverlay.draw(spriteBatch);
         spriteBatch.end();
         shapeRenderer.begin();
-        for (int i = 0; i < stuff.junks.size; i++) {
-            stuff.junks.get(i).drawCollider(shapeRenderer);
-        }
         for (int i = 0; i < stuff.blackHoles.size; i++) {
             stuff.blackHoles.get(i).drawDistortion(shapeRenderer);
-            stuff.blackHoles.get(i).drawCollider(shapeRenderer);
         }
-        stuff.player1Ship.drawCollider(shapeRenderer);
-        stuff.player2Ship.drawCollider(shapeRenderer);
         shapeRenderer.end();
     }
 

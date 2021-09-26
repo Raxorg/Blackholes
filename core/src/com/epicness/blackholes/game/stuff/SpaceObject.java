@@ -62,15 +62,16 @@ public abstract class SpaceObject {
         this.angularVelocity = angularVelocity;
     }
 
-    public void setVelocity(Vector2 velocity) {
-        this.velocity = velocity;
+    public void setVelocity(Vector2 newVelocity) {
+        velocity = newVelocity;
+        velocity.clamp(0f, 400f);
     }
 
     public void setAcceleration(Vector2 acceleration) {
         this.acceleration = acceleration;
     }
 
-    public void addAcceleration(Vector2 acceleration) {
-        this.acceleration.add(acceleration);
+    public void addAcceleration(Vector2 additionalAcceleration) {
+        acceleration.add(additionalAcceleration);
     }
 }

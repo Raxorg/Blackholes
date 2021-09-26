@@ -1,11 +1,13 @@
 package com.epicness.blackholes.game.logic;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.epicness.blackholes.game.GameAssets;
 import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.blackholes.game.stuff.Junk;
+import com.epicness.fundamentals.utils.Random;
 
 import static com.epicness.blackholes.game.GameConstants.INITIAL_JUNK;
 import static com.epicness.blackholes.game.GameConstants.JUNK_SPAWN_RATE;
@@ -42,6 +44,8 @@ public class JunkSpawner {
         junk.setPosition(new Vector2(randomX, randomY));
         float randomAngularVelocity = MathUtils.random(-50f, 50f);
         junk.setAngularVelocity(randomAngularVelocity);
+        Color color = Random.randomColor();
+        junk.setColor(color.cpy().lerp(Color.WHITE, 0.4f));
         junks.add(junk);
     }
 

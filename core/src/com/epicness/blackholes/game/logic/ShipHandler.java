@@ -40,8 +40,8 @@ public class ShipHandler {
         }
         //first calculate a forward vector for the ship
         Vector2 forward = new Vector2(0, -1);
-        forward = forward.rotateDeg(ship.getRotation());
-        forward = forward.scl(SHIP_ACCELERATION_SPEED);
+        forward.rotateDeg(ship.getRotation());
+        forward.scl(SHIP_ACCELERATION_SPEED);
         //Now this vector, scaled by SHIP_SPEED should be added to the ships acceleration vector
         ship.addAcceleration(forward);
     }

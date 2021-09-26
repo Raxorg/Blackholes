@@ -1,5 +1,6 @@
 package com.epicness.blackholes.game.stuff;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -48,6 +49,10 @@ public class Junk extends SpaceObject {
     public void setRotation(float rotation) {
         super.setRotation(rotation);
         dualSprited.setRotation(rotation);
+    }
+
+    public void setColor(Color color) {
+        dualSprited.setColor(color);
     }
 
     public AdvancedCircle getCollider() {

@@ -15,15 +15,15 @@ public class ButtonHandler {
     private boolean onTutorial, onCredits;
 
     public void playButtonPress() {
-        stuff.getPlayButton().setColor(Color.BLACK);
+        stuff.getPlayButton().setColor(Color.RED);
     }
 
     public void tutorialButtonPress() {
-        stuff.getTutorialButton().setColor(Color.BLACK);
+        stuff.getTutorialButton().setColor(Color.ORANGE);
     }
 
     public void creditsButtonPress() {
-        stuff.getCreditsButton().setColor(Color.BLACK);
+        stuff.getCreditsButton().setColor(Color.YELLOW);
     }
 
     public void release(float x, float y) {
@@ -58,11 +58,11 @@ public class ButtonHandler {
         stuff.getTutorialButton().setColor(Color.WHITE);
         stuff.getCreditsButton().setColor(Color.WHITE);
         if (stuff.getPlayButton().contains(x, y)) {
-            stuff.getPlayButton().setColor(Color.BLACK);
+            stuff.getPlayButton().setColor(Color.RED);
         } else if (stuff.getTutorialButton().contains(x, y)) {
-            stuff.getTutorialButton().setColor(Color.BLACK);
+            stuff.getTutorialButton().setColor(Color.ORANGE);
         } else if (stuff.getCreditsButton().contains(x, y)) {
-            stuff.getCreditsButton().setColor(Color.BLACK);
+            stuff.getCreditsButton().setColor(Color.YELLOW);
         }
     }
 
