@@ -20,4 +20,10 @@ public class AssetPaths {
     public static final String RIGHT_GUN_PATH = "images/game/shipRightGun.png";
     public static final String NUCLEUS_PATH = "images/game/shipNucleus.png";
     public static final String THRUSTER_PATH = "images/game/shipThruster.png";
+
+    public static final String COCKPIT_INVERTED_PATH = "images/game/shipCockpitInverted.png";
+    public static final String LEFT_GUN_INVERTED_PATH = "images/game/shipLeftGunInverted.png";
+    public static final String RIGHT_GUN_INVERTED_PATH = "images/game/shipRightGunInverted.png";
+    public static final String NUCLEUS_INVERTED_PATH = "images/game/shipNucleusInverted.png";
+    public static final String THRUSTER_INVERTED_PATH = "images/game/shipThrusterInverted.png";
 }

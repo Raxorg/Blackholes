@@ -51,6 +51,9 @@ public class CollisionHandler {
             Circle blackHoleCollider = blackHole.getCollider();
             for (int j = 0; j < ship.getComponents().size(); j++) {
                 ShipComponent component = ship.getComponents().get(j);
+                if (component.isDestroyed()) {
+                    continue;
+                }
                 Polygon shipCollider = component.getCollider();
                 if (Overlapper.overlapPolygonCircle(shipCollider, blackHoleCollider)) {
                     logic.getDamageHandler().takeDamage(component);

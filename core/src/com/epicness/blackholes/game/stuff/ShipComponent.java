@@ -64,6 +64,10 @@ public class ShipComponent extends SpaceObject {
         return health;
     }
 
+    public boolean isDestroyed() {
+        return health <= 0;
+    }
+
     public void setHealth(int health) {
         this.health = health;
     }

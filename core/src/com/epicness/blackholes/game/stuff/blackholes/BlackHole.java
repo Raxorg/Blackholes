@@ -13,6 +13,7 @@ import com.epicness.fundamentals.stuff.DualSprited;
 
 import static com.epicness.blackholes.game.GameConstants.BH_COLLIDER_INITIAL_RADIUS;
 import static com.epicness.blackholes.game.GameConstants.BH_COLLIDER_MAX_RADIUS;
+import static com.epicness.blackholes.game.GameConstants.BLACK_HOLE_INITIAL_LIFE;
 import static com.epicness.blackholes.game.GameConstants.BLACK_HOLE_INITIAL_SIZE;
 import static com.epicness.blackholes.game.GameConstants.BLACK_HOLE_MAX_SIZE;
 
@@ -23,6 +24,7 @@ public class BlackHole extends SpaceObject {
     private final AdvancedCircle distortion;
     private final BlackHoleType type;
     private final Ship owner;
+    private float lifeLeft;
 
     public BlackHole(Sprite blackHole, Sprite blackHoleGlow,
                      Sprite invertedBlackHole, Sprite invertedBlackHoleGlow,
@@ -39,8 +41,8 @@ public class BlackHole extends SpaceObject {
         distortion.setPosition(BLACK_HOLE_INITIAL_SIZE / 2f, BLACK_HOLE_INITIAL_SIZE / 2f);
 
         this.type = type;
-
         this.owner = owner;
+        lifeLeft = BLACK_HOLE_INITIAL_LIFE;
 
         collider = new AdvancedCircle(BH_COLLIDER_INITIAL_RADIUS);
     }
@@ -110,6 +112,14 @@ public class BlackHole extends SpaceObject {
 
     public Ship getOwner() {
         return owner;
+    }
+
+    public float getLifeLeft() {
+        return lifeLeft;
+    }
+
+    public void setLifeLeft(float lifeLeft) {
+        this.lifeLeft = lifeLeft;
     }
 
     public AdvancedCircle getCollider() {

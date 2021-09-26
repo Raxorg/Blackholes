@@ -21,20 +21,20 @@ public class Ship extends SpaceObject {
     public Ship(GameAssets assets) {
         // Creating the components
         ShipComponent cockpit = new ShipComponent(
-                assets.getShipCockpit(), assets.getShipCockpit(),   // Pending asset
-                new float[]{-0.55f, -1.5f, -0.25f, 1.5f, 0.25f, 1.5f, 0.55f, -1.5f});
+                assets.getShipCockpit(), assets.getShipCockpitInverted(),
+                new float[]{-3f, -4.85f, -3f, -1.5f, 3f, -1.5f, 3f, -4.85f});
         ShipComponent leftGun = new ShipComponent(
-                assets.getShipLeftGun(), assets.getShipLeftGun(),           // Pending asset
-                new float[]{-0.25f, 2, -0.25f, 2.75f, 0.25f, 2.75f, 0.25f, 2});
+                assets.getShipLeftGun(), assets.getShipLeftGunInverted(),
+                new float[]{-5.5f, -4f, -4f, -4f, -3.3f, -1f, -1f, -0.65f, -1f, 1.2f, -3f, 1.8f, -6f, -1f});
         ShipComponent rightGun = new ShipComponent(
-                assets.getShipRightGun(), assets.getShipRightGun(),           // Pending asset
-                new float[]{-0.25f, 2, -0.25f, 2.75f, 0.25f, 2.75f, 0.25f, 2});
+                assets.getShipRightGun(), assets.getShipRightGunInverted(),
+                new float[]{5.5f, -4f, 4f, -4f, 3.3f, -1f, 1f, -0.65f, 1f, 1.2f, 3f, 1.8f, 6f, -1f});
         ShipComponent nucleus = new ShipComponent(
-                assets.getShipNucleus(), assets.getShipNucleus(),   // Pending asset
-                new float[]{-1, -2, -0.5f, 2, 0.5f, 2, 1, -2});
+                assets.getShipNucleus(), assets.getShipNucleusInverted(),
+                new float[]{-1f, -0.75f, -1f, 1.5f, 1f, 1.5f, 1f, -0.75f});
         ShipComponent thruster = new ShipComponent(
-                assets.getShipThruster(), assets.getShipThruster(), // Pending asset
-                new float[]{-0.5f, -2, 0.5f, -2, 0.75f, -2.5f, -0.75f, -2.5f});
+                assets.getShipThruster(), assets.getShipThrusterInverted(),
+                new float[]{-2.5f, 2f, -3.25f, 5f, 3.25f, 5f, 2.5f, 2f});
 
         components = new ArrayList<>();
         components.add(cockpit);

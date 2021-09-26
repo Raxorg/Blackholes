@@ -17,8 +17,7 @@ public class DamageHandler {
         component.setHealth(component.getHealth() - 10);
         switch (component.getHealth()) {
             case 0:
-                component.setColor(Color.GRAY);
-                // TODO: 23/9/2021 Detach
+                component.setColor(Color.CLEAR);
                 break;
             case 10:
                 component.setColor(Color.RED);

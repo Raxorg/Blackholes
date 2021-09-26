@@ -28,6 +28,7 @@ public class BlackHoleHandler {
 
     public void update(float delta) {
         DelayedRemovalArray<BlackHole> blackHoles = stuff.blackHoles;
+        blackHoles.begin();
         for (int i = 0; i < blackHoles.size; i++) {
             BlackHole blackHole = blackHoles.get(i);
             blackHole.rotate(delta * BLACK_HOLE_ROTATION_SPEED);
@@ -39,7 +40,12 @@ public class BlackHoleHandler {
                     handleRepulsionBlackHole(blackHole);
                     break;
             }
+            blackHole.setLifeLeft(blackHole.getLifeLeft() - delta);
+            if (blackHole.getLifeLeft() <= 0f) {
+                blackHoles.removeValue(blackHole, true);
+            }
         }
+        blackHoles.end();
     }
 
     private void handleAlphaBlackHole(BlackHole blackHole) {

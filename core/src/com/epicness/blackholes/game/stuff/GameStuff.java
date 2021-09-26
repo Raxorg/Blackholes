@@ -28,10 +28,10 @@ public class GameStuff extends Stuff {
         background.setSize(CAMERA_WIDTH, CAMERA_HEIGHT);
 
         player1Ship = new Ship(assets);
-        player1Ship.setPosition(new Vector2(100, CAMERA_HEIGHT / 2f));
+        player1Ship.setPosition(new Vector2(100, CAMERA_HEIGHT - 100f));
 
         player2Ship = new Ship(assets);
-        player2Ship.setPosition(new Vector2(CAMERA_WIDTH - 100, 300));
+        player2Ship.setPosition(new Vector2(CAMERA_WIDTH - 100, CAMERA_HEIGHT - 100f));
 
         junks = new DelayedRemovalArray<>();
 

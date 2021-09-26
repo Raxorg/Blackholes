@@ -9,14 +9,19 @@ import static com.badlogic.gdx.graphics.Texture.TextureFilter.Linear;
 import static com.epicness.blackholes.AssetPaths.BACKGROUND_PATH;
 import static com.epicness.blackholes.AssetPaths.BLACK_HOLE_GLOW_PATH;
 import static com.epicness.blackholes.AssetPaths.BLACK_HOLE_PATH;
+import static com.epicness.blackholes.AssetPaths.COCKPIT_INVERTED_PATH;
 import static com.epicness.blackholes.AssetPaths.COCKPIT_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BACKGROUND_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BLACK_HOLE_GLOW_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BLACK_HOLE_PATH;
+import static com.epicness.blackholes.AssetPaths.LEFT_GUN_INVERTED_PATH;
 import static com.epicness.blackholes.AssetPaths.LEFT_GUN_PATH;
+import static com.epicness.blackholes.AssetPaths.NUCLEUS_INVERTED_PATH;
 import static com.epicness.blackholes.AssetPaths.NUCLEUS_PATH;
+import static com.epicness.blackholes.AssetPaths.RIGHT_GUN_INVERTED_PATH;
 import static com.epicness.blackholes.AssetPaths.RIGHT_GUN_PATH;
 import static com.epicness.blackholes.AssetPaths.SHOOT_PATH;
+import static com.epicness.blackholes.AssetPaths.THRUSTER_INVERTED_PATH;
 import static com.epicness.blackholes.AssetPaths.THRUSTER_PATH;
 
 public class GameAssets extends Assets {
@@ -27,6 +32,7 @@ public class GameAssets extends Assets {
     private Sprite background, invertedBackground;
     private Sprite blackHole, blackHoleGlow, invertedBlackHole, invertedBlackHoleGlow;
     private Sprite shipCockpit, shipLeftGun, shipRightGun, shipNucleus, shipThruster;
+    private Sprite shipCockpitInverted, shipLeftGunInverted, shipRightGunInverted, shipNucleusInverted, shipThrusterInverted;
 
     @Override
     public void queueAssetLoading() {
@@ -44,6 +50,12 @@ public class GameAssets extends Assets {
         assetManager.load(RIGHT_GUN_PATH, Texture.class);
         assetManager.load(NUCLEUS_PATH, Texture.class);
         assetManager.load(THRUSTER_PATH, Texture.class);
+
+        assetManager.load(COCKPIT_INVERTED_PATH, Texture.class);
+        assetManager.load(LEFT_GUN_INVERTED_PATH, Texture.class);
+        assetManager.load(RIGHT_GUN_INVERTED_PATH, Texture.class);
+        assetManager.load(NUCLEUS_INVERTED_PATH, Texture.class);
+        assetManager.load(THRUSTER_INVERTED_PATH, Texture.class);
     }
 
     @Override
@@ -66,6 +78,12 @@ public class GameAssets extends Assets {
         shipRightGun = new Sprite(assetManager.get(RIGHT_GUN_PATH, Texture.class));
         shipNucleus = new Sprite(assetManager.get(NUCLEUS_PATH, Texture.class));
         shipThruster = new Sprite(assetManager.get(THRUSTER_PATH, Texture.class));
+
+        shipCockpitInverted = new Sprite(assetManager.get(COCKPIT_INVERTED_PATH, Texture.class));
+        shipLeftGunInverted = new Sprite(assetManager.get(LEFT_GUN_INVERTED_PATH, Texture.class));
+        shipRightGunInverted = new Sprite(assetManager.get(RIGHT_GUN_INVERTED_PATH, Texture.class));
+        shipNucleusInverted = new Sprite(assetManager.get(NUCLEUS_INVERTED_PATH, Texture.class));
+        shipThrusterInverted = new Sprite(assetManager.get(THRUSTER_INVERTED_PATH, Texture.class));
     }
 
     // Audio
@@ -116,5 +134,25 @@ public class GameAssets extends Assets {
 
     public Sprite getShipThruster() {
         return shipThruster;
+    }
+
+    public Sprite getShipCockpitInverted() {
+        return shipCockpitInverted;
+    }
+
+    public Sprite getShipLeftGunInverted() {
+        return shipLeftGunInverted;
+    }
+
+    public Sprite getShipRightGunInverted() {
+        return shipRightGunInverted;
+    }
+
+    public Sprite getShipNucleusInverted() {
+        return shipNucleusInverted;
+    }
+
+    public Sprite getShipThrusterInverted() {
+        return shipThrusterInverted;
     }
 }
