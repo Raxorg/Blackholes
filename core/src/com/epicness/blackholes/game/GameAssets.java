@@ -9,18 +9,19 @@ import static com.epicness.blackholes.AssetPaths.BACKGROUND_PATH;
 import static com.epicness.blackholes.AssetPaths.BLACK_HOLE_GLOW_PATH;
 import static com.epicness.blackholes.AssetPaths.BLACK_HOLE_PATH;
 import static com.epicness.blackholes.AssetPaths.COCKPIT_PATH;
-import static com.epicness.blackholes.AssetPaths.GUN_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BACKGROUND_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BLACK_HOLE_GLOW_PATH;
 import static com.epicness.blackholes.AssetPaths.INVERTED_BLACK_HOLE_PATH;
-import static com.epicness.blackholes.AssetPaths.SHIELDS_PATH;
+import static com.epicness.blackholes.AssetPaths.LEFT_GUN_PATH;
+import static com.epicness.blackholes.AssetPaths.NUCLEUS_PATH;
+import static com.epicness.blackholes.AssetPaths.RIGHT_GUN_PATH;
 import static com.epicness.blackholes.AssetPaths.THRUSTER_PATH;
 
 public class GameAssets extends Assets {
 
     private Sprite background, invertedBackground;
     private Sprite blackHole, blackHoleGlow, invertedBlackHole, invertedBlackHoleGlow;
-    private Sprite shipCockpit, shipGun, shipShields, shipThruster;
+    private Sprite shipCockpit, shipLeftGun, shipRightGun, shipNucleus, shipThruster;
 
     @Override
     public void queueAssetLoading() {
@@ -32,8 +33,9 @@ public class GameAssets extends Assets {
         assetManager.load(INVERTED_BLACK_HOLE_GLOW_PATH, Texture.class);
 
         assetManager.load(COCKPIT_PATH, Texture.class);
-        assetManager.load(GUN_PATH, Texture.class);
-        assetManager.load(SHIELDS_PATH, Texture.class);
+        assetManager.load(LEFT_GUN_PATH, Texture.class);
+        assetManager.load(RIGHT_GUN_PATH, Texture.class);
+        assetManager.load(NUCLEUS_PATH, Texture.class);
         assetManager.load(THRUSTER_PATH, Texture.class);
     }
 
@@ -51,8 +53,9 @@ public class GameAssets extends Assets {
         invertedBlackHoleGlow.getTexture().setFilter(Linear, Linear);
 
         shipCockpit = new Sprite(assetManager.get(COCKPIT_PATH, Texture.class));
-        shipGun = new Sprite(assetManager.get(GUN_PATH, Texture.class));
-        shipShields = new Sprite(assetManager.get(SHIELDS_PATH, Texture.class));
+        shipLeftGun = new Sprite(assetManager.get(LEFT_GUN_PATH, Texture.class));
+        shipRightGun = new Sprite(assetManager.get(RIGHT_GUN_PATH, Texture.class));
+        shipNucleus = new Sprite(assetManager.get(NUCLEUS_PATH, Texture.class));
         shipThruster = new Sprite(assetManager.get(THRUSTER_PATH, Texture.class));
     }
 
@@ -84,12 +87,16 @@ public class GameAssets extends Assets {
         return shipCockpit;
     }
 
-    public Sprite getShipGun() {
-        return shipGun;
+    public Sprite getShipLeftGun() {
+        return shipLeftGun;
     }
 
-    public Sprite getShipShields() {
-        return shipShields;
+    public Sprite getShipRightGun() {
+        return shipRightGun;
+    }
+
+    public Sprite getShipNucleus() {
+        return shipNucleus;
     }
 
     public Sprite getShipThruster() {

@@ -18,7 +18,7 @@ public class ShipComponent extends SpaceObject {
 
     public ShipComponent(Sprite normal, Sprite inverted, float[] colliderVertices) {
         dualSprited = new DualSprited(normal, inverted);
-        dualSprited.setScale(1.2f);
+        dualSprited.setScale(0.5f);
         dualSprited.setOriginCenter();
         collider = new Polygon(colliderVertices);
         health = COMPONENT_STARTING_HEALTH;

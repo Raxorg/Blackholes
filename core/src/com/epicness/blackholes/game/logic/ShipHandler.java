@@ -32,7 +32,7 @@ public class ShipHandler {
             return;
         }
         //first calculate a forward vector for the ship
-        Vector2 forward = new Vector2(0, 1);
+        Vector2 forward = new Vector2(0, -1);
         forward = forward.rotateDeg(ship.getRotation());
         forward = forward.scl(SHIP_ACCELERATION_SPEED);
         //Now this vector, scaled by SHIP_SPEED should be added to the ships acceleration vector
@@ -43,7 +43,7 @@ public class ShipHandler {
         if (ship.getCooldown() > 0f) {
             return;
         }
-        Vector2 forward = new Vector2(0, 1);
+        Vector2 forward = new Vector2(0, -1);
         forward = forward.rotateDeg(ship.getRotation());
         logic.getBlackHoleHandler().spawnBlackHole(ship, forward, ALPHA);
         ship.setCooldown(SHIP_SHOOT_COOLDOWN);

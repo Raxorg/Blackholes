@@ -23,11 +23,14 @@ public class Ship extends SpaceObject {
         ShipComponent cockpit = new ShipComponent(
                 assets.getShipCockpit(), assets.getShipCockpit(),   // Pending asset
                 new float[]{-0.55f, -1.5f, -0.25f, 1.5f, 0.25f, 1.5f, 0.55f, -1.5f});
-        ShipComponent gun = new ShipComponent(
-                assets.getShipGun(), assets.getShipGun(),           // Pending asset
+        ShipComponent leftGun = new ShipComponent(
+                assets.getShipLeftGun(), assets.getShipLeftGun(),           // Pending asset
                 new float[]{-0.25f, 2, -0.25f, 2.75f, 0.25f, 2.75f, 0.25f, 2});
-        ShipComponent shield = new ShipComponent(
-                assets.getShipShields(), assets.getShipShields(),   // Pending asset
+        ShipComponent rightGun = new ShipComponent(
+                assets.getShipRightGun(), assets.getShipRightGun(),           // Pending asset
+                new float[]{-0.25f, 2, -0.25f, 2.75f, 0.25f, 2.75f, 0.25f, 2});
+        ShipComponent nucleus = new ShipComponent(
+                assets.getShipNucleus(), assets.getShipNucleus(),   // Pending asset
                 new float[]{-1, -2, -0.5f, 2, 0.5f, 2, 1, -2});
         ShipComponent thruster = new ShipComponent(
                 assets.getShipThruster(), assets.getShipThruster(), // Pending asset
@@ -35,8 +38,9 @@ public class Ship extends SpaceObject {
 
         components = new ArrayList<>();
         components.add(cockpit);
-        components.add(gun);
-        components.add(shield);
+        components.add(leftGun);
+        components.add(rightGun);
+        components.add(nucleus);
         components.add(thruster);
 
         // Now position and scale them

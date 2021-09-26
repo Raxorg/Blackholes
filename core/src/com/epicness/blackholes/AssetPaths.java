@@ -12,8 +12,10 @@ public class AssetPaths {
     public static final String BLACK_HOLE_GLOW_PATH = "images/game/blackHoleGlow.png";
     public static final String INVERTED_BLACK_HOLE_PATH = "images/game/invertedBlackHole.png";
     public static final String INVERTED_BLACK_HOLE_GLOW_PATH = "images/game/invertedBlackHoleGlow.png";
+
     public static final String COCKPIT_PATH = "images/game/shipCockpit.png";
-    public static final String GUN_PATH = "images/game/shipGun.png";
-    public static final String SHIELDS_PATH = "images/game/shipShields.png";
+    public static final String LEFT_GUN_PATH = "images/game/shipLeftGun.png";
+    public static final String RIGHT_GUN_PATH = "images/game/shipRightGun.png";
+    public static final String NUCLEUS_PATH = "images/game/shipNucleus.png";
     public static final String THRUSTER_PATH = "images/game/shipThruster.png";
 }
