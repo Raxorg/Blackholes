@@ -5,10 +5,10 @@ import com.epicness.blackholes.game.stuff.GameStuff;
 import com.epicness.fundamentals.input.InputHandler;
 
 import static com.badlogic.gdx.Input.Keys.A;
-import static com.badlogic.gdx.Input.Keys.CONTROL_RIGHT;
 import static com.badlogic.gdx.Input.Keys.D;
 import static com.badlogic.gdx.Input.Keys.ENTER;
 import static com.badlogic.gdx.Input.Keys.F;
+import static com.badlogic.gdx.Input.Keys.L;
 import static com.badlogic.gdx.Input.Keys.LEFT;
 import static com.badlogic.gdx.Input.Keys.R;
 import static com.badlogic.gdx.Input.Keys.RIGHT;
@@ -53,7 +53,7 @@ public class GameInputHandler extends InputHandler {
             case RIGHT:
                 stuff.player2Ship.setAngularVelocity(-SHIP_TURN_SPEED);
                 break;
-            case CONTROL_RIGHT:
+            case L:
                 logic.getShipHandler().shoot(stuff.player2Ship);
                 break;
             // Restart
